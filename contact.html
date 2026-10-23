@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Customer Care – MS STORE</title>
+  <meta name="description" content="Get in touch with MS STORE dedicated customer support team. We are available 24/7 to assist with orders, returns, and styling advice.">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#4F46E5">
+
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <button class="mobile-nav-toggle" id="mobile-menu-toggle" aria-label="Open mobile navigation"><i data-lucide="menu" style="width:24px;height:24px;"></i></button>
+
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i></div>
+          <span>MS STORE<span class="accent-dot">.</span></span>
+        </a>
+
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link">Shop All</a>
+          <a href="shop.html?category=Electronics" class="nav-link">Electronics</a>
+          <a href="shop.html?category=Fashion" class="nav-link">Fashion</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="action-btn theme-toggle-btn" aria-label="Toggle dark mode"><i data-lucide="moon" style="width:20px;height:20px;"></i></button>
+          <a href="wishlist.html" class="action-btn"><i data-lucide="heart" style="width:20px;height:20px;"></i></a>
+          <button class="action-btn header-cart-icon" id="header-cart-btn"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i><span class="badge-count" id="cart-badge-count" style="display:none;">0</span></button>
+          <div id="header-auth-container"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-muted);margin-bottom:2rem;">
+        <a href="index.html" style="color:var(--text-main);font-weight:500;">Home</a>
+        <span>/</span>
+        <span style="color:var(--primary);font-weight:600;">Contact Us</span>
+      </nav>
+
+      <div style="text-align:center;max-width:620px;margin:0 auto 3.5rem;">
+        <h1 style="font-size:2.5rem;margin-bottom:0.75rem;">We Are Here to Help</h1>
+        <p style="color:var(--text-muted);font-size:1.05rem;">Have questions regarding an order, product sizing, or returns? Our customer care specialists are at your service 24/7.</p>
+      </div>
+
+      <!-- Contact Info & Form Grid -->
+      <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:3.5rem;align-items:start;">
+
+        <!-- Left: Office & Contact Channels -->
+        <div>
+          <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;margin-bottom:2rem;">
+            <h3 style="font-size:1.25rem;margin-bottom:1.5rem;">Direct Channels</h3>
+
+            <div style="display:flex;flex-direction:column;gap:1.5rem;">
+              <div style="display:flex;gap:1rem;">
+                <div class="trust-icon-box"><i data-lucide="mail" style="width:20px;height:20px;"></i></div>
+                <div>
+                  <strong style="font-size:0.95rem;">Email Support</strong>
+                  <div style="font-size:0.875rem;color:var(--text-muted);">care@msstore.com</div>
+                  <div style="font-size:0.75rem;color:var(--success);margin-top:2px;">Average response time: &lt; 2 hours</div>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:1rem;">
+                <div class="trust-icon-box"><i data-lucide="phone" style="width:20px;height:20px;"></i></div>
+                <div>
+                  <strong style="font-size:0.95rem;">Toll-Free Phone</strong>
+                  <div style="font-size:0.875rem;color:var(--text-muted);">+1 (800) 555-0199</div>
+                  <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">Monday to Sunday: 24/7 Available</div>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:1rem;">
+                <div class="trust-icon-box"><i data-lucide="map-pin" style="width:20px;height:20px;"></i></div>
+                <div>
+                  <strong style="font-size:0.95rem;">Headquarters</strong>
+                  <div style="font-size:0.875rem;color:var(--text-muted);">MS STORE Global Flagship<br>500 Howard Street, Suite 300<br>San Francisco, CA 94105</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Message Form -->
+        <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow-sm);">
+          <h2 style="font-size:1.5rem;margin-bottom:0.5rem;">Send Us a Message</h2>
+          <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.75rem;">Fill out the form below and an advisor will reply shortly.</p>
+
+          <form id="contact-form">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Your Name *</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="Eleanor Vance" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="name@example.com" required>
+              </div>
+
+              <div class="form-group" style="grid-column:span 2;">
+                <label class="form-label" for="contact-subject">Subject</label>
+                <input type="text" id="contact-subject" class="form-control" placeholder="e.g. Order Tracking or Product Inquiry" required>
+              </div>
+
+              <div class="form-group" style="grid-column:span 2;">
+                <label class="form-label" for="contact-msg">Message *</label>
+                <textarea id="contact-msg" class="form-control" rows="5" style="height:auto;padding:0.75rem 1rem;" placeholder="How can our team assist you today?" required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" id="btn-submit-contact">
+              <i data-lucide="send" style="width:16px;height:16px;"></i>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Slide-out Mini Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-slide-drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i><span>Your Shopping Bag</span></div>
+      <button class="drawer-close-btn" id="cart-drawer-close-btn"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+    </div>
+    <div class="cart-drawer-body" id="cart-drawer-items-list"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-total-row"><span>Estimated Total</span><span id="mini-cart-total">$0.00</span></div>
+      <a href="cart.html" class="btn btn-outline btn-block">View Bag</a>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Mobile-only compact footer (hidden on desktop via CSS) -->
+      <div class="footer-mobile-compact">
+        <div class="footer-mobile-brand">
+          <img src="/assets/favicon.svg" alt="MS STORE Logo" width="24" height="24">
+          <span class="footer-mobile-brand-text">MS STORE<span style="color:var(--primary);">.</span></span>
+        </div>
+        <p class="footer-mobile-desc">Curating exceptional everyday technology, tailored apparel, and home living sanctuaries.</p>
+        <div class="footer-mobile-divider"></div>
+        <div class="footer-mobile-links-grid">
+          <div>
+            <div class="footer-mobile-col-title">Quick Links</div>
+            <a href="account.html#orders" class="footer-mobile-link">Track Order</a>
+            <a href="faq.html" class="footer-mobile-link">Help &amp; FAQs</a>
+          </div>
+          <div>
+            <div class="footer-mobile-col-title">Customer Support</div>
+            <a href="faq.html#privacy" class="footer-mobile-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-mobile-link">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer-mobile-divider"></div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 MS STORE. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/firebase-service.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/cart.js"></script>
+  <script type="module" src="js/wishlist.js"></script>
+  <script type="module" src="js/ui.js"></script>
+  <script type="module">
+    import { sendContactMessage } from "./js/firebase-service.js";
+    import { showToast } from "./js/ui.js";
+
+    document.getElementById("contact-form")?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("contact-name").value.trim();
+      const email = document.getElementById("contact-email").value.trim();
+      const subject = document.getElementById("contact-subject").value.trim();
+      const message = document.getElementById("contact-msg").value.trim();
+
+      const btn = document.getElementById("btn-submit-contact");
+      btn.disabled = true;
+      btn.innerHTML = `<span class="spinner"></span> <span>Sending...</span>`;
+
+      await sendContactMessage({ name, email, subject, message });
+
+      btn.disabled = false;
+      btn.innerHTML = `<i data-lucide="check" style="width:16px;height:16px;"></i> <span>Message Sent</span>`;
+      showToast("Message Received", "Thank you! Our customer care specialist will respond within 2 hours.", "success");
+      document.getElementById("contact-form").reset();
+    });
+  </script>
+</body>
+</html>

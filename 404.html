@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found – MS STORE</title>
+
+  
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#4F46E5">
+<!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner" style="justify-content:space-between;">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i></div>
+          <span>MS STORE<span class="accent-dot">.</span></span>
+        </a>
+        <a href="index.html" class="btn btn-outline btn-sm">Return Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main 404 content -->
+  <main>
+    <div style="max-width:560px;">
+      <div style="font-family:var(--font-heading);font-size:7rem;font-weight:800;color:var(--primary);line-height:1;margin-bottom:1rem;">
+        404
+      </div>
+      <h1 style="font-size:2rem;margin-bottom:1rem;">Page Not Found</h1>
+      <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.6;margin-bottom:2.5rem;">
+        The page you are looking for might have been moved, renamed, or is temporarily unavailable. Let's get you back on track.
+      </p>
+
+      <!-- Quick Categories -->
+      <div style="display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:2.5rem;">
+        <a href="shop.html?category=Electronics" class="btn btn-outline btn-sm">Electronics</a>
+        <a href="shop.html?category=Fashion" class="btn btn-outline btn-sm">Fashion</a>
+        <a href="shop.html?category=Home+and+Living" class="btn btn-outline btn-sm">Home & Living</a>
+        <a href="shop.html?filter=deals" class="btn btn-accent btn-sm">Today's Deals</a>
+      </div>
+
+      <a href="shop.html" class="btn btn-primary btn-lg">
+        <i data-lucide="shopping-bag" style="width:18px;height:18px;"></i>
+        <span>Explore All Products</span>
+      </a>
+    </div>
+  </main>
+
+  <footer style="padding:1.5rem 0;text-align:center;font-size:0.8125rem;color:var(--text-muted);border-top:1px solid var(--border-color);">
+    <div>© 2026 MS STORE. All rights reserved.</div>
+  </footer>
+
+  <script>
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+      window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

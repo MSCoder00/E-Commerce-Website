@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Wishlist – MS STORE</title>
+  <meta name="description" content="View your saved products and move them seamlessly to your shopping bag.">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#4F46E5">
+
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Announcement">
+    <span>Free Worldwide Express Shipping on all orders over $50</span>
+    <span>•</span>
+    <span>Use code <button class="badge-deal-code" onclick="navigator.clipboard.writeText('WELCOME10'); showToast('Code Copied!','WELCOME10 copied to clipboard.','info');">WELCOME10</button> for 10% off</span>
+  </aside>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <button class="mobile-nav-toggle" id="mobile-menu-toggle" aria-label="Open mobile navigation">
+          <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        </button>
+
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i></div>
+          <span>MS STORE<span class="accent-dot">.</span></span>
+        </a>
+
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link">Shop All</a>
+          <a href="shop.html?category=Electronics" class="nav-link">Electronics</a>
+          <a href="shop.html?category=Fashion" class="nav-link">Fashion</a>
+          <a href="shop.html?filter=deals" class="nav-link" style="color:var(--accent);">Deals</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-search">
+          <div class="search-input-wrap">
+            <span class="search-icon-btn"><i data-lucide="search" style="width:18px;height:18px;"></i></span>
+            <input type="text" class="search-input" placeholder="Search products..." aria-label="Search catalog">
+          </div>
+          <div class="search-results-dropdown" id="search-results-dropdown">
+            <div class="search-results-list" id="search-results-list"></div>
+            <button class="search-view-all-btn">View All Search Results →</button>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="action-btn theme-toggle-btn" aria-label="Toggle dark mode">
+            <i data-lucide="moon" style="width:20px;height:20px;"></i>
+          </button>
+          <a href="wishlist.html" class="action-btn" aria-label="View Wishlist">
+            <i data-lucide="heart" style="width:20px;height:20px;color:var(--accent);fill:var(--accent);"></i>
+            <span class="badge-count" id="wishlist-badge-count" style="display:none;">0</span>
+          </a>
+          <button class="action-btn header-cart-icon" id="header-cart-btn" aria-label="Open cart drawer">
+            <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
+            <span class="badge-count" id="cart-badge-count" style="display:none;">0</span>
+          </button>
+          <div id="header-auth-container">
+            <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-muted);margin-bottom:1.75rem;">
+        <a href="index.html" style="color:var(--text-main);font-weight:500;">Home</a>
+        <span>/</span>
+        <span style="color:var(--primary);font-weight:600;">Saved Wishlist</span>
+      </nav>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <h1 style="font-size:2.25rem;margin-bottom:0.25rem;">Saved Favourites</h1>
+          <p id="wishlist-page-count" style="color:var(--text-muted);font-size:0.925rem;">0 Saved Items</p>
+        </div>
+
+        <button class="btn btn-outline btn-sm" id="btn-add-all-cart">
+          <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+          <span>Move All to Bag</span>
+        </button>
+      </div>
+
+      <!-- Empty State -->
+      <div id="wishlist-empty-state" style="display:none;text-align:center;padding:5rem 1.5rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--accent-light);color:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
+          <i data-lucide="heart" style="width:40px;height:40px;"></i>
+        </div>
+        <h2 style="font-size:1.75rem;margin-bottom:0.75rem;">Your Wishlist is Empty</h2>
+        <p style="color:var(--text-muted);max-width:440px;margin:0 auto 2rem;font-size:0.95rem;">
+          Tap the heart icon on any product to save items you love and revisit them anytime.
+        </p>
+        <a href="shop.html" class="btn btn-primary btn-lg">Explore Catalog →</a>
+      </div>
+
+      <!-- Grid -->
+      <div class="products-grid" id="wishlist-items-grid" style="grid-template-columns:repeat(4, 1fr);">
+        <!-- Rendered by wishlist-page.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#fff;">
+            <div class="brand-icon"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i></div>
+            <span>MS STORE<span class="accent-dot">.</span></span>
+          </a>
+          <p>Curating exceptional everyday technology, tailored apparel, and home living sanctuaries.</p>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Shop Categories</h4>
+          <div class="footer-links">
+            <a href="shop.html?category=Electronics">Electronics</a>
+            <a href="shop.html?category=Fashion">Fashion & Apparel</a>
+            <a href="shop.html?category=Home+and+Living">Home and Living</a>
+            <a href="shop.html?category=Beauty+and+Care">Beauty and Care</a>
+            <a href="shop.html?category=Sports+and+Fitness">Sports and Fitness</a>
+            <a href="shop.html?category=Accessories">Accessories</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Customer Care</h4>
+          <div class="footer-links">
+            <a href="account.html">My Account</a>
+            <a href="account.html#orders">Order Tracking</a>
+            <a href="wishlist.html">Saved Wishlist</a>
+            <a href="faq.html">Shipping & Returns</a>
+            <a href="contact.html">Customer Support</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <div class="footer-links">
+            <a href="about.html">About MS STORE</a>
+            <a href="faq.html#privacy">Privacy Policy</a>
+            <a href="faq.html#terms">Terms of Service</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Newsletter</h4>
+          <p class="footer-newsletter-text">Subscribe for exclusive flash deals and early product launches.</p>
+          <form class="footer-newsletter-form newsletter-form">
+            <input type="email" class="footer-input" placeholder="Enter your email" required aria-label="Email address for newsletter">
+            <button type="submit" class="btn btn-primary btn-sm">Join</button>
+          </form>
+        </div>
+      </div>
+      <!-- Mobile-only compact footer (hidden on desktop via CSS) -->
+      <div class="footer-mobile-compact">
+        <div class="footer-mobile-brand">
+          <img src="/assets/favicon.svg" alt="MS STORE Logo" width="24" height="24">
+          <span class="footer-mobile-brand-text">MS STORE<span style="color:var(--primary);">.</span></span>
+        </div>
+        <p class="footer-mobile-desc">Curating exceptional everyday technology, tailored apparel, and home living sanctuaries.</p>
+        <div class="footer-mobile-divider"></div>
+        <div class="footer-mobile-links-grid">
+          <div>
+            <div class="footer-mobile-col-title">Quick Links</div>
+            <a href="account.html#orders" class="footer-mobile-link">Track Order</a>
+            <a href="faq.html" class="footer-mobile-link">Help &amp; FAQs</a>
+          </div>
+          <div>
+            <div class="footer-mobile-col-title">Customer Support</div>
+            <a href="faq.html#privacy" class="footer-mobile-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-mobile-link">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer-mobile-divider"></div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 MS STORE. All rights reserved.</div>
+        <div class="payment-methods-icons">
+          <span class="payment-badge">VISA</span>
+          <span class="payment-badge">MASTERCARD</span>
+          <span class="payment-badge">AMEX</span>
+          <span class="payment-badge">APPLE PAY</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-out Mini Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-slide-drawer" aria-label="Shopping Bag Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <i data-lucide="shopping-bag" style="width:20px;height:20px;color:var(--primary);"></i>
+        <span>Your Shopping Bag</span>
+      </div>
+      <button class="drawer-close-btn" id="cart-drawer-close-btn" aria-label="Close cart"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+    </div>
+    <div class="shipping-meter-wrap">
+      <div class="shipping-meter-text" id="free-shipping-meter-text"><span>Add <strong>$50.00</strong> to unlock <strong>FREE Shipping</strong>!</span></div>
+      <div class="shipping-progress-bar"><div class="shipping-progress-fill" id="free-shipping-progress-fill" style="width:0%;"></div></div>
+    </div>
+    <div class="cart-drawer-body" id="cart-drawer-items-list"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal-row"><span>Subtotal</span><span id="mini-cart-subtotal">$0.00</span></div>
+      <div class="drawer-total-row"><span>Estimated Total</span><span id="mini-cart-total">$0.00</span></div>
+      <div class="drawer-actions-grid">
+        <a href="cart.html" class="btn btn-outline btn-block">View Bag</a>
+        <a href="checkout.html" class="btn btn-primary btn-block">Checkout</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="cart-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="brand-logo" style="font-size:1.25rem;">
+        <div class="brand-icon" style="width:32px;height:32px;"><i data-lucide="shopping-bag" style="width:16px;height:16px;"></i></div>
+        <span>MS STORE</span>
+      </div>
+      <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="Close menu"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+    </div>
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-list">
+        <div class="mobile-nav-item"><a href="index.html">Home</a></div>
+        <div class="mobile-nav-item"><a href="shop.html">Shop All Products</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?filter=deals" style="color:var(--accent);">Flash Deals</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Electronics">Electronics</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Fashion">Fashion</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Home+and+Living">Home & Living</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Beauty+and+Care">Beauty & Care</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Sports+and+Fitness">Sports & Fitness</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Accessories">Accessories</a></div>
+        <div style="height:1px;background-color:var(--border-color);margin:0.75rem 0;"></div>
+        <div class="mobile-nav-item"><a href="wishlist.html">Wishlist</a></div>
+        <div class="mobile-nav-item"><a href="cart.html">View Bag</a></div>
+        <div class="mobile-nav-item"><a href="account.html">My Account</a></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to top">
+    <i data-lucide="arrow-up" style="width:20px;height:20px;"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/firebase-service.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/cart.js"></script>
+  <script type="module" src="js/wishlist.js"></script>
+  <script type="module" src="js/ui.js"></script>
+  <script type="module" src="js/auth-guard.js"></script>
+  <script type="module" src="js/wishlist-page.js"></script>
+</body>
+</html>

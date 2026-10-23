@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account – MS STORE</title>
+  <meta name="description" content="Manage your profile settings, view past orders, track active shipments, and manage saved delivery addresses.">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#4F46E5">
+
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <button class="mobile-nav-toggle" id="mobile-menu-toggle" aria-label="Open mobile navigation">
+          <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        </button>
+
+        <a href="index.html" class="brand-logo">
+          <div class="brand-icon"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i></div>
+          <span>MS STORE<span class="accent-dot">.</span></span>
+        </a>
+
+        <nav class="header-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="shop.html" class="nav-link">Shop All</a>
+          <a href="shop.html?category=Electronics" class="nav-link">Electronics</a>
+          <a href="shop.html?category=Fashion" class="nav-link">Fashion</a>
+          <a href="shop.html?filter=deals" class="nav-link" style="color:var(--accent);">Deals</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-search">
+          <div class="search-input-wrap">
+            <span class="search-icon-btn"><i data-lucide="search" style="width:18px;height:18px;"></i></span>
+            <input type="text" class="search-input" placeholder="Search products..." aria-label="Search catalog">
+          </div>
+          <div class="search-results-dropdown" id="search-results-dropdown">
+            <div class="search-results-list" id="search-results-list"></div>
+            <button class="search-view-all-btn">View All Search Results →</button>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="action-btn theme-toggle-btn" aria-label="Toggle dark mode">
+            <i data-lucide="moon" style="width:20px;height:20px;"></i>
+          </button>
+          <a href="wishlist.html" class="action-btn" aria-label="View Wishlist">
+            <i data-lucide="heart" style="width:20px;height:20px;"></i>
+            <span class="badge-count" id="wishlist-badge-count" style="display:none;">0</span>
+          </a>
+          <button class="action-btn header-cart-icon" id="header-cart-btn" aria-label="Open cart drawer">
+            <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
+            <span class="badge-count" id="cart-badge-count" style="display:none;">0</span>
+          </button>
+          <div id="header-auth-container">
+            <!-- Filled by auth.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Breadcrumbs -->
+      <nav style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-muted);margin-bottom:2rem;">
+        <a href="index.html" style="color:var(--text-main);font-weight:500;">Home</a>
+        <span>/</span>
+        <span style="color:var(--primary);font-weight:600;">My Account</span>
+      </nav>
+
+      <!-- Account Layout: Left Sidebar + Right Panes -->
+      <div style="display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:start;">
+
+        <!-- Left: Account Navigation Sidebar -->
+        <aside style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-xs);">
+          <!-- User Summary Card -->
+          <div style="display:flex;align-items:center;gap:1rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border-color);margin-bottom:1.25rem;">
+            <img id="account-display-avatar" src="assets/images/placeholder.svg" alt="Avatar" width="52" height="52" style="width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--slate-100);" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';">
+            <div style="min-width:0;">
+              <h3 id="account-display-name" style="font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></h3>
+              <p id="account-display-email" style="font-size:0.775rem;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></p>
+            </div>
+          </div>
+
+          <!-- Nav Links -->
+          <div style="display:flex;flex-direction:column;gap:0.35rem;">
+            <button class="account-nav-item active nav-link" data-tab="profile" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+              <i data-lucide="user" style="width:18px;height:18px;"></i>
+              <span>Profile Settings</span>
+            </button>
+            <button class="account-nav-item nav-link" data-tab="orders" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+              <i data-lucide="package" style="width:18px;height:18px;"></i>
+              <span>Order History</span>
+            </button>
+            <button class="account-nav-item nav-link" data-tab="addresses" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+              <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
+              <span>Saved Addresses</span>
+            </button>
+            <a href="wishlist.html" class="nav-link" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+              <i data-lucide="heart" style="width:18px;height:18px;"></i>
+              <span>My Wishlist</span>
+            </a>
+            <div style="height:1px;background:var(--border-color);margin:0.5rem 0;"></div>
+            <button id="account-logout-btn" class="account-nav-item nav-link text-danger" data-tab="logout" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+              <i data-lucide="log-out" style="width:18px;height:18px;"></i>
+              <span>Sign Out</span>
+            </button>
+          </div>
+        </aside>
+
+        <!-- Right: Tab Content Panes -->
+        <div>
+
+          <!-- ==========================================================================
+               PANE 1: Profile Settings
+               ========================================================================== -->
+          <div class="account-tab-pane" id="pane-profile">
+            <h2 style="font-size:1.6rem;margin-bottom:0.5rem;">Profile Settings</h2>
+            <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">Update your customer details and contact preferences.</p>
+
+            <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;">
+              <form id="account-profile-form">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;">
+                  <div class="form-group" style="grid-column:span 2;">
+                    <label class="form-label" for="profile-name-input">Display Name</label>
+                    <input type="text" id="profile-name-input" class="form-control" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profile-email-input">Email Address (Read-only)</label>
+                    <input type="email" id="profile-email-input" class="form-control" disabled style="background:var(--slate-100);cursor:not-allowed;">
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="profile-phone-input">Phone Number</label>
+                    <input type="tel" id="profile-phone-input" class="form-control" placeholder="+1 (555) 019-2834">
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               PANE 2: Order History
+               ========================================================================== -->
+          <div class="account-tab-pane" id="pane-orders" style="display:none;">
+            <h2 style="font-size:1.6rem;margin-bottom:0.5rem;">Order History</h2>
+            <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">Track shipments, view invoice summaries, and inspect past purchases.</p>
+
+            <div id="orders-history-list">
+              <!-- Rendered dynamically by account-page.js -->
+            </div>
+          </div>
+
+          <!-- ==========================================================================
+               PANE 3: Saved Addresses
+               ========================================================================== -->
+          <div class="account-tab-pane" id="pane-addresses" style="display:none;">
+            <h2 style="font-size:1.6rem;margin-bottom:0.5rem;">Saved Delivery Addresses</h2>
+            <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">Save multiple delivery locations for 1-click checkout.</p>
+
+            <div id="addresses-list-container" style="margin-bottom:2.5rem;">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Add Address Form -->
+            <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;">
+              <h3 style="font-size:1.15rem;margin-bottom:1rem;">Add New Address</h3>
+              <form id="new-address-form">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                  <div class="form-group">
+                    <label class="form-label" for="addr-label">Label (e.g. Home, Office)</label>
+                    <input type="text" id="addr-label" class="form-control" placeholder="Home" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="addr-phone">Phone</label>
+                    <input type="tel" id="addr-phone" class="form-control" placeholder="+1 (555) 000-0000" required>
+                  </div>
+                  <div class="form-group" style="grid-column:span 2;">
+                    <label class="form-label" for="addr-street">Street Address</label>
+                    <input type="text" id="addr-street" class="form-control" placeholder="123 Market St, Suite 400" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="addr-city">City</label>
+                    <input type="text" id="addr-city" class="form-control" placeholder="San Francisco" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="addr-zip">Zip / Postal Code</label>
+                    <input type="text" id="addr-zip" class="form-control" placeholder="94107" required>
+                  </div>
+                  <div class="form-group" style="grid-column:span 2;">
+                    <label class="form-label" for="addr-country">Country</label>
+                    <select id="addr-country" class="form-control">
+                      <option value="United States">United States</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Australia">Australia</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save New Address</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       Track Order Modal
+       ========================================================================== -->
+  <div class="modal-backdrop" id="order-track-modal">
+    <div class="modal-dialog" style="max-width:540px;text-align:left;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border-color);">
+        <div>
+          <h3 style="font-size:1.25rem;">Shipment Tracking</h3>
+          <span id="track-modal-order-id" style="font-family:monospace;font-size:0.9rem;color:var(--primary);font-weight:700;"></span>
+        </div>
+        <button class="drawer-close-btn" id="track-modal-close" aria-label="Close dialog">
+          <i data-lucide="x" style="width:18px;height:18px;"></i>
+        </button>
+      </div>
+
+      <!-- 4-Checkpoint Progress Tracker -->
+      <div style="display:flex;flex-direction:column;gap:1.5rem;position:relative;padding-left:1.5rem;margin-bottom:2rem;border-left:2px solid var(--primary);">
+        <div style="position:relative;">
+          <div style="position:absolute;left:-31px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--success);border:2px solid #fff;"></div>
+          <strong>Order Confirmed</strong>
+          <div style="font-size:0.75rem;color:var(--text-muted);" id="track-modal-date">Verified</div>
+        </div>
+
+        <div style="position:relative;">
+          <div style="position:absolute;left:-31px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--primary);border:2px solid #fff;"></div>
+          <strong>Processing at Fulfillment Center</strong>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Package prepared & boxed</div>
+        </div>
+
+        <div style="position:relative;">
+          <div style="position:absolute;left:-31px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--slate-300);border:2px solid #fff;"></div>
+          <strong style="color:var(--text-muted);">In Transit / Out for Delivery</strong>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Courier in route</div>
+        </div>
+
+        <div style="position:relative;">
+          <div style="position:absolute;left:-31px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--slate-300);border:2px solid #fff;"></div>
+          <strong style="color:var(--text-muted);">Delivered</strong>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Estimated in 2-3 business days</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-block" onclick="document.getElementById('order-track-modal').classList.remove('is-open');">
+        Close Tracker
+      </button>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Mobile-only compact footer (hidden on desktop via CSS) -->
+      <div class="footer-mobile-compact">
+        <div class="footer-mobile-brand">
+          <img src="/assets/favicon.svg" alt="MS STORE Logo" width="24" height="24">
+          <span class="footer-mobile-brand-text">MS STORE<span style="color:var(--primary);">.</span></span>
+        </div>
+        <p class="footer-mobile-desc">Curating exceptional everyday technology, tailored apparel, and home living sanctuaries.</p>
+        <div class="footer-mobile-divider"></div>
+        <div class="footer-mobile-links-grid">
+          <div>
+            <div class="footer-mobile-col-title">Quick Links</div>
+            <a href="account.html#orders" class="footer-mobile-link">Track Order</a>
+            <a href="faq.html" class="footer-mobile-link">Help &amp; FAQs</a>
+          </div>
+          <div>
+            <div class="footer-mobile-col-title">Customer Support</div>
+            <a href="faq.html#privacy" class="footer-mobile-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-mobile-link">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer-mobile-divider"></div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 MS STORE. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/firebase-service.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/cart.js"></script>
+  <script type="module" src="js/wishlist.js"></script>
+  <script type="module" src="js/ui.js"></script>
+  <script type="module" src="js/account-page.js"></script>
+</body>
+</html>

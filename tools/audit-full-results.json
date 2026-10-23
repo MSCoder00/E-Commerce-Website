@@ -1,0 +1,886 @@
+{
+  "brokenProducts": [],
+  "totalImages": 110,
+  "allResults": [
+    {
+      "productId": "prod-elec-01",
+      "productName": "Aura Wireless Headphones",
+      "category": "Electronics",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-01",
+      "productName": "Aura Wireless Headphones",
+      "category": "Electronics",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-01",
+      "productName": "Aura Wireless Headphones",
+      "category": "Electronics",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-01",
+      "productName": "Aura Wireless Headphones",
+      "category": "Electronics",
+      "index": 3,
+      "src": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-02",
+      "productName": "PulseFit Smart Watch",
+      "category": "Electronics",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-02",
+      "productName": "PulseFit Smart Watch",
+      "category": "Electronics",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-02",
+      "productName": "PulseFit Smart Watch",
+      "category": "Electronics",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-02",
+      "productName": "PulseFit Smart Watch",
+      "category": "Electronics",
+      "index": 3,
+      "src": "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-03",
+      "productName": "BoomBox Mini Speaker",
+      "category": "Electronics",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-03",
+      "productName": "BoomBox Mini Speaker",
+      "category": "Electronics",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-03",
+      "productName": "BoomBox Mini Speaker",
+      "category": "Electronics",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1507646227500-4d389b0012be?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-04",
+      "productName": "VoltMax 20,000mAh Power Bank",
+      "category": "Electronics",
+      "index": 0,
+      "src": "assets/images/products/prod-elec-04-1.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-04",
+      "productName": "VoltMax 20,000mAh Power Bank",
+      "category": "Electronics",
+      "index": 1,
+      "src": "assets/images/products/prod-elec-04-2.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-04",
+      "productName": "VoltMax 20,000mAh Power Bank",
+      "category": "Electronics",
+      "index": 2,
+      "src": "assets/images/products/prod-elec-04-3.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-05",
+      "productName": "NovaBuds Pro Earbuds",
+      "category": "Electronics",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-05",
+      "productName": "NovaBuds Pro Earbuds",
+      "category": "Electronics",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-05",
+      "productName": "NovaBuds Pro Earbuds",
+      "category": "Electronics",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-06",
+      "productName": "SnapCharge 65W Fast Charger",
+      "category": "Electronics",
+      "index": 0,
+      "src": "assets/images/products/prod-elec-06-1.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-06",
+      "productName": "SnapCharge 65W Fast Charger",
+      "category": "Electronics",
+      "index": 1,
+      "src": "assets/images/products/prod-elec-06-2.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-elec-06",
+      "productName": "SnapCharge 65W Fast Charger",
+      "category": "Electronics",
+      "index": 2,
+      "src": "assets/images/products/prod-elec-06-3.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-01",
+      "productName": "Urban Edge Denim Jacket",
+      "category": "Fashion",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-01",
+      "productName": "Urban Edge Denim Jacket",
+      "category": "Fashion",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-01",
+      "productName": "Urban Edge Denim Jacket",
+      "category": "Fashion",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-02",
+      "productName": "Everyday Cotton Tee",
+      "category": "Fashion",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-02",
+      "productName": "Everyday Cotton Tee",
+      "category": "Fashion",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-02",
+      "productName": "Everyday Cotton Tee",
+      "category": "Fashion",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-03",
+      "productName": "Stride Runner Sneakers",
+      "category": "Fashion",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-03",
+      "productName": "Stride Runner Sneakers",
+      "category": "Fashion",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-03",
+      "productName": "Stride Runner Sneakers",
+      "category": "Fashion",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-04",
+      "productName": "Metro Leather Backpack",
+      "category": "Fashion",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-04",
+      "productName": "Metro Leather Backpack",
+      "category": "Fashion",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-04",
+      "productName": "Metro Leather Backpack",
+      "category": "Fashion",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-05",
+      "productName": "Breeze Summer Dress",
+      "category": "Fashion",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-05",
+      "productName": "Breeze Summer Dress",
+      "category": "Fashion",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-05",
+      "productName": "Breeze Summer Dress",
+      "category": "Fashion",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-06",
+      "productName": "Classic Chino Pants",
+      "category": "Fashion",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-06",
+      "productName": "Classic Chino Pants",
+      "category": "Fashion",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-fash-06",
+      "productName": "Classic Chino Pants",
+      "category": "Fashion",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-01",
+      "productName": "Lumina Table Lamp",
+      "category": "Home and Living",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-01",
+      "productName": "Lumina Table Lamp",
+      "category": "Home and Living",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-01",
+      "productName": "Lumina Table Lamp",
+      "category": "Home and Living",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-02",
+      "productName": "CozyNest Throw Blanket",
+      "category": "Home and Living",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-02",
+      "productName": "CozyNest Throw Blanket",
+      "category": "Home and Living",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-02",
+      "productName": "CozyNest Throw Blanket",
+      "category": "Home and Living",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-03",
+      "productName": "ChefMate Non-Stick Pan Set",
+      "category": "Home and Living",
+      "index": 0,
+      "src": "assets/images/products/prod-home-03-1.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-03",
+      "productName": "ChefMate Non-Stick Pan Set",
+      "category": "Home and Living",
+      "index": 1,
+      "src": "assets/images/products/prod-home-03-2.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-03",
+      "productName": "ChefMate Non-Stick Pan Set",
+      "category": "Home and Living",
+      "index": 2,
+      "src": "assets/images/products/prod-home-03-3.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-04",
+      "productName": "Oak and Ivory Wall Clock",
+      "category": "Home and Living",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-04",
+      "productName": "Oak and Ivory Wall Clock",
+      "category": "Home and Living",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-04",
+      "productName": "Oak and Ivory Wall Clock",
+      "category": "Home and Living",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-05",
+      "productName": "Serene Ceramic Vase",
+      "category": "Home and Living",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-05",
+      "productName": "Serene Ceramic Vase",
+      "category": "Home and Living",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-05",
+      "productName": "Serene Ceramic Vase",
+      "category": "Home and Living",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-06",
+      "productName": "DreamCloud Bedding Set",
+      "category": "Home and Living",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-06",
+      "productName": "DreamCloud Bedding Set",
+      "category": "Home and Living",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-home-06",
+      "productName": "DreamCloud Bedding Set",
+      "category": "Home and Living",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-01",
+      "productName": "Glow Vitamin C Serum",
+      "category": "Beauty and Care",
+      "index": 0,
+      "src": "assets/images/products/prod-beau-01-1.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-01",
+      "productName": "Glow Vitamin C Serum",
+      "category": "Beauty and Care",
+      "index": 1,
+      "src": "assets/images/products/prod-beau-01-2.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-01",
+      "productName": "Glow Vitamin C Serum",
+      "category": "Beauty and Care",
+      "index": 2,
+      "src": "assets/images/products/prod-beau-01-3.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-02",
+      "productName": "Velvet Matte Lipstick",
+      "category": "Beauty and Care",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-02",
+      "productName": "Velvet Matte Lipstick",
+      "category": "Beauty and Care",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-02",
+      "productName": "Velvet Matte Lipstick",
+      "category": "Beauty and Care",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-03",
+      "productName": "Oud Noir Perfume",
+      "category": "Beauty and Care",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-03",
+      "productName": "Oud Noir Perfume",
+      "category": "Beauty and Care",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-03",
+      "productName": "Oud Noir Perfume",
+      "category": "Beauty and Care",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1547887537-6158d64c35b3?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-04",
+      "productName": "SilkSmooth Hair Dryer",
+      "category": "Beauty and Care",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-04",
+      "productName": "SilkSmooth Hair Dryer",
+      "category": "Beauty and Care",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-04",
+      "productName": "SilkSmooth Hair Dryer",
+      "category": "Beauty and Care",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-05",
+      "productName": "Pure Aloe Face Wash",
+      "category": "Beauty and Care",
+      "index": 0,
+      "src": "assets/images/products/prod-beau-05-1.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-05",
+      "productName": "Pure Aloe Face Wash",
+      "category": "Beauty and Care",
+      "index": 1,
+      "src": "assets/images/products/prod-beau-05-2.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-05",
+      "productName": "Pure Aloe Face Wash",
+      "category": "Beauty and Care",
+      "index": 2,
+      "src": "assets/images/products/prod-beau-05-3.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-06",
+      "productName": "GentleMan Beard Care Kit",
+      "category": "Beauty and Care",
+      "index": 0,
+      "src": "assets/images/products/prod-beau-06-1.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-06",
+      "productName": "GentleMan Beard Care Kit",
+      "category": "Beauty and Care",
+      "index": 1,
+      "src": "assets/images/products/prod-beau-06-2.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-beau-06",
+      "productName": "GentleMan Beard Care Kit",
+      "category": "Beauty and Care",
+      "index": 2,
+      "src": "assets/images/products/prod-beau-06-3.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-01",
+      "productName": "FlexGrip Yoga Mat",
+      "category": "Sports and Fitness",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-01",
+      "productName": "FlexGrip Yoga Mat",
+      "category": "Sports and Fitness",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-01",
+      "productName": "FlexGrip Yoga Mat",
+      "category": "Sports and Fitness",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-02",
+      "productName": "IronCore Dumbbell Set",
+      "category": "Sports and Fitness",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-02",
+      "productName": "IronCore Dumbbell Set",
+      "category": "Sports and Fitness",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-02",
+      "productName": "IronCore Dumbbell Set",
+      "category": "Sports and Fitness",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-03",
+      "productName": "AeroDry Training Tee",
+      "category": "Sports and Fitness",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-03",
+      "productName": "AeroDry Training Tee",
+      "category": "Sports and Fitness",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-03",
+      "productName": "AeroDry Training Tee",
+      "category": "Sports and Fitness",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-04",
+      "productName": "ProSprint Running Shorts",
+      "category": "Sports and Fitness",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-04",
+      "productName": "ProSprint Running Shorts",
+      "category": "Sports and Fitness",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-04",
+      "productName": "ProSprint Running Shorts",
+      "category": "Sports and Fitness",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-05",
+      "productName": "HydroSip Steel Bottle",
+      "category": "Sports and Fitness",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-05",
+      "productName": "HydroSip Steel Bottle",
+      "category": "Sports and Fitness",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1589365278144-c9e705f843ba?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-05",
+      "productName": "HydroSip Steel Bottle",
+      "category": "Sports and Fitness",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-06",
+      "productName": "PowerBand Resistance Set",
+      "category": "Sports and Fitness",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-06",
+      "productName": "PowerBand Resistance Set",
+      "category": "Sports and Fitness",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-spor-06",
+      "productName": "PowerBand Resistance Set",
+      "category": "Sports and Fitness",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-01",
+      "productName": "Aviator Polarized Sunglasses",
+      "category": "Accessories",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-01",
+      "productName": "Aviator Polarized Sunglasses",
+      "category": "Accessories",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-01",
+      "productName": "Aviator Polarized Sunglasses",
+      "category": "Accessories",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-02",
+      "productName": "Heritage Leather Wallet",
+      "category": "Accessories",
+      "index": 0,
+      "src": "assets/images/products/prod-acc-02-1.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-02",
+      "productName": "Heritage Leather Wallet",
+      "category": "Accessories",
+      "index": 1,
+      "src": "assets/images/products/prod-acc-02-2.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-02",
+      "productName": "Heritage Leather Wallet",
+      "category": "Accessories",
+      "index": 2,
+      "src": "assets/images/products/prod-acc-02-3.jpg",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-03",
+      "productName": "Chrono Steel Watch",
+      "category": "Accessories",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-03",
+      "productName": "Chrono Steel Watch",
+      "category": "Accessories",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-03",
+      "productName": "Chrono Steel Watch",
+      "category": "Accessories",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-04",
+      "productName": "ShieldGuard Phone Case",
+      "category": "Accessories",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-04",
+      "productName": "ShieldGuard Phone Case",
+      "category": "Accessories",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-04",
+      "productName": "ShieldGuard Phone Case",
+      "category": "Accessories",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-05",
+      "productName": "Weave Canvas Belt",
+      "category": "Accessories",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-05",
+      "productName": "Weave Canvas Belt",
+      "category": "Accessories",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-05",
+      "productName": "Weave Canvas Belt",
+      "category": "Accessories",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-06",
+      "productName": "Pearl Drop Earrings",
+      "category": "Accessories",
+      "index": 0,
+      "src": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-06",
+      "productName": "Pearl Drop Earrings",
+      "category": "Accessories",
+      "index": 1,
+      "src": "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    },
+    {
+      "productId": "prod-acc-06",
+      "productName": "Pearl Drop Earrings",
+      "category": "Accessories",
+      "index": 2,
+      "src": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&auto=format&fit=crop&q=80",
+      "status": 200
+    }
+  ]
+}

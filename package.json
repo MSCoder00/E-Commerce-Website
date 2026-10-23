@@ -1,0 +1,15 @@
+{
+  "name": "ms-store",
+  "version": "1.0.0",
+  "description": "MS STORE - Modern e-commerce storefront",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "npx -y serve -l 8080",
+    "start": "npx -y serve -l 8080"
+  },
+  "dependencies": {
+    "puppeteer-core": "^25.16.0",
+    "serve": "^14.2.4"
+  }
+}

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MS STORE – Premium Modern Storefront</title>
+  <meta name="description" content="Discover curated electronics, designer fashion, home living essentials, luxury beauty, and athletic gear at MS STORE. Enjoy free express shipping and guaranteed returns.">
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#4F46E5">
+
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MS STORE – Premium Modern Storefront">
+  <meta property="og:description" content="Discover curated electronics, designer fashion, home living essentials, luxury beauty, and athletic gear.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&auto=format&fit=crop&q=80">
+
+  <!-- Google Fonts: Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Announcement Bar
+       ========================================================================== -->
+  <aside class="announcement-bar" aria-label="Announcement">
+    <div class="announcement-content">
+      <span class="announcement-item announcement-item-1">Free Worldwide Express Shipping on all orders over $50</span>
+      <span class="announcement-dot">•</span>
+      <span class="announcement-item announcement-item-2">Use code <button class="badge-deal-code" onclick="navigator.clipboard.writeText('WELCOME10'); showToast('Code Copied!','WELCOME10 copied to clipboard.','info');">WELCOME10</button> for 10% off</span>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Main Sticky Header
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-nav-toggle" id="mobile-menu-toggle" aria-label="Open mobile navigation">
+          <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        </button>
+
+        <!-- Brand Logo -->
+        <a href="index.html" class="brand-logo" aria-label="MS STORE Homepage">
+          <img src="assets/favicon.svg" alt="MS STORE Logo" class="brand-logo-img" width="36" height="36">
+          <span>MS STORE<span class="accent-dot">.</span></span>
+        </a>
+
+        <!-- Desktop Navigation & Mega Menu -->
+        <nav class="header-nav" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="shop.html" class="nav-link">Shop All</a>
+
+          <!-- Categories with Mega Menu Dropdown -->
+          <div class="has-mega-menu">
+            <a href="shop.html" class="nav-link">
+              <span>Categories</span>
+              <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
+            </a>
+
+            <div class="mega-menu">
+              <div class="container">
+                <div class="mega-menu-grid">
+                  <div>
+                    <div class="mega-col-title">
+                      <i data-lucide="headphones" style="width:16px;height:16px;color:var(--primary);"></i>
+                      <span>Electronics</span>
+                    </div>
+                    <div class="mega-menu-list">
+                      <a href="shop.html?category=Electronics&sub=Headphones">Headphones</a>
+                      <a href="shop.html?category=Electronics&sub=Smart+Watches">Smart Watches</a>
+                      <a href="shop.html?category=Electronics&sub=Speakers">Speakers</a>
+                      <a href="shop.html?category=Electronics&sub=Power+Banks">Power Banks</a>
+                      <a href="shop.html?category=Electronics">All Electronics →</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="mega-col-title">
+                      <i data-lucide="shirt" style="width:16px;height:16px;color:var(--primary);"></i>
+                      <span>Fashion</span>
+                    </div>
+                    <div class="mega-menu-list">
+                      <a href="shop.html?category=Fashion&sub=Men">Men's Apparel</a>
+                      <a href="shop.html?category=Fashion&sub=Women">Women's Collection</a>
+                      <a href="shop.html?category=Fashion&sub=Shoes">Footwear & Sneakers</a>
+                      <a href="shop.html?category=Fashion&sub=Bags">Bags & Backpacks</a>
+                      <a href="shop.html?category=Fashion">All Fashion →</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="mega-col-title">
+                      <i data-lucide="home" style="width:16px;height:16px;color:var(--primary);"></i>
+                      <span>Home & Living</span>
+                    </div>
+                    <div class="mega-menu-list">
+                      <a href="shop.html?category=Home+and+Living&sub=Decor">Artisan Decor</a>
+                      <a href="shop.html?category=Home+and+Living&sub=Kitchen">Kitchenware</a>
+                      <a href="shop.html?category=Home+and+Living&sub=Lighting">Modern Lighting</a>
+                      <a href="shop.html?category=Home+and+Living&sub=Bedding">Luxury Bedding</a>
+                      <a href="shop.html?category=Home+and+Living">All Home →</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="mega-col-title">
+                      <i data-lucide="sparkles" style="width:16px;height:16px;color:var(--primary);"></i>
+                      <span>Beauty & Care</span>
+                    </div>
+                    <div class="mega-menu-list">
+                      <a href="shop.html?category=Beauty+and+Care&sub=Skincare">Organic Skincare</a>
+                      <a href="shop.html?category=Beauty+and+Care&sub=Fragrance">Luxury Perfumes</a>
+                      <a href="shop.html?category=Beauty+and+Care&sub=Grooming">Grooming & Tools</a>
+                      <a href="shop.html?category=Beauty+and+Care">All Beauty →</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="mega-col-title">
+                      <i data-lucide="activity" style="width:16px;height:16px;color:var(--primary);"></i>
+                      <span>Sports & Fitness</span>
+                    </div>
+                    <div class="mega-menu-list">
+                      <a href="shop.html?category=Sports+and+Fitness&sub=Activewear">Activewear</a>
+                      <a href="shop.html?category=Sports+and+Fitness&sub=Yoga">Yoga & Pilates</a>
+                      <a href="shop.html?category=Sports+and+Fitness&sub=Gym+Gear">Gym Equipment</a>
+                      <a href="shop.html?category=Sports+and+Fitness">All Sports →</a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="mega-col-title">
+                      <i data-lucide="watch" style="width:16px;height:16px;color:var(--primary);"></i>
+                      <span>Accessories</span>
+                    </div>
+                    <div class="mega-menu-list">
+                      <a href="shop.html?category=Accessories&sub=Sunglasses">Sunglasses</a>
+                      <a href="shop.html?category=Accessories&sub=Wallets">Leather Wallets</a>
+                      <a href="shop.html?category=Accessories&sub=Watches">Steel Watches</a>
+                      <a href="shop.html?category=Accessories">All Accessories →</a>
+                    </div>
+                  </div>
+
+                  <!-- Mega Promo Card -->
+                  <div class="mega-promo-card">
+                    <div>
+                      <span class="badge badge-deal" style="margin-bottom:0.5rem;">LIMITED OFFER</span>
+                      <h4 style="color:#fff;font-size:1.1rem;margin-bottom:0.4rem;">Today's Top Deals</h4>
+                      <p style="font-size:0.775rem;color:#E2E8F0;line-height:1.4;">Save up to 40% on curated bestsellers this week.</p>
+                    </div>
+                    <a href="shop.html?filter=deals" class="btn btn-accent btn-sm" style="align-self:flex-start;">Explore Deals →</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="shop.html?filter=deals" class="nav-link" style="color:var(--accent);">
+            <i data-lucide="tag" style="width:15px;height:15px;"></i>
+            <span>Deals</span>
+          </a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Live Search Bar -->
+        <div class="header-search">
+          <div class="search-input-wrap">
+            <span class="search-icon-btn">
+              <i data-lucide="search" style="width:18px;height:18px;"></i>
+            </span>
+            <input type="text" class="search-input" placeholder="Search products, brands, categories..." aria-label="Search catalog">
+          </div>
+
+          <!-- Autocomplete Dropdown -->
+          <div class="search-results-dropdown" id="search-results-dropdown">
+            <div class="search-results-list" id="search-results-list"></div>
+            <button class="search-view-all-btn">View All Search Results →</button>
+          </div>
+        </div>
+
+        <!-- Header Actions: Theme Toggle, Wishlist, Cart, Account -->
+        <div class="header-actions">
+          <!-- Dark/Light Mode Switcher -->
+          <button class="action-btn theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i data-lucide="moon" style="width:20px;height:20px;"></i>
+          </button>
+
+          <!-- Wishlist -->
+          <a href="wishlist.html" class="action-btn" aria-label="View Wishlist" title="Wishlist">
+            <i data-lucide="heart" style="width:20px;height:20px;"></i>
+            <span class="badge-count" id="wishlist-badge-count" style="display:none;">0</span>
+          </a>
+
+          <!-- Cart Icon (Triggers Drawer) -->
+          <button class="action-btn header-cart-icon" id="header-cart-btn" aria-label="Open cart drawer" title="Shopping Bag">
+            <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
+            <span class="badge-count" id="cart-badge-count" style="display:none;">0</span>
+          </button>
+
+          <!-- Account Sign In / User Menu -->
+          <div id="header-auth-container">
+            <a href="login.html" class="btn btn-outline btn-sm" id="btn-header-signin">
+              <i data-lucide="user" style="width:16px;height:16px;"></i>
+              <span>Sign In</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Search Bar (under header for phones) -->
+  <div class="mobile-search-bar" style="display:none;">
+    <div class="search-input-wrap">
+      <span class="search-icon-btn">
+        <i data-lucide="search" style="width:18px;height:18px;"></i>
+      </span>
+      <input type="text" class="search-input" placeholder="Search products..." aria-label="Search catalog">
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Hero Banner Slider
+       ========================================================================== -->
+  <main>
+    <div class="container">
+      <section class="hero-slider-wrap" aria-label="Featured Promotions">
+        <div class="hero-slider-container" id="hero-slider-container">
+
+          <!-- Slide 1: Audio Tech -->
+          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1600&auto=format&fit=crop&q=80');">
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+              <span class="hero-tagline">NEW SOUND HORIZONS</span>
+              <h1 class="hero-title">High-Fidelity Audio Engineered for Perfection.</h1>
+              <p class="hero-subtitle">Experience 40-hour wireless playtime, hybrid active noise cancellation, and studio-grade beryllium drivers.</p>
+              <div class="hero-cta-group">
+                <a href="product.html?id=prod-elec-01" class="btn btn-primary btn-lg">Shop Aura Wireless →</a>
+                <a href="shop.html?category=Electronics" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.4);">View Electronics</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Modern Fashion -->
+          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&auto=format&fit=crop&q=80');">
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+              <span class="hero-tagline">AUTUMN APPAREL</span>
+              <h2 class="hero-title">Effortless Elegance for Everyday City Living.</h2>
+              <p class="hero-subtitle">Discover handcrafted denim jackets, breathable Supima cotton tees, and responsive runner sneakers.</p>
+              <div class="hero-cta-group">
+                <a href="shop.html?category=Fashion" class="btn btn-primary btn-lg">Explore Collection →</a>
+                <a href="shop.html?filter=deals" class="btn btn-accent btn-lg">Up to 30% Off</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Home & Sanctuary -->
+          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&auto=format&fit=crop&q=80');">
+            <div class="hero-slide-overlay"></div>
+            <div class="hero-slide-content">
+              <span class="hero-tagline">NORDIC LIVING</span>
+              <h2 class="hero-title">Elevate Your Living Space With Timeless Craft.</h2>
+              <p class="hero-subtitle">Tactile ceramic lighting, Egyptian cotton bedding, and artisan cookware created for lifetime durability.</p>
+              <div class="hero-cta-group">
+                <a href="shop.html?category=Home+and+Living" class="btn btn-primary btn-lg">Shop Home Essentials →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Slider Controls -->
+        <button class="hero-nav-arrow hero-nav-prev" id="hero-prev-btn" aria-label="Previous Slide">
+          <i data-lucide="chevron-left" style="width:22px;height:22px;"></i>
+        </button>
+        <button class="hero-nav-arrow hero-nav-next" id="hero-next-btn" aria-label="Next Slide">
+          <i data-lucide="chevron-right" style="width:22px;height:22px;"></i>
+        </button>
+
+        <!-- Slider Dots -->
+        <div class="hero-dots">
+          <div class="hero-dot is-active" aria-label="Slide 1"></div>
+          <div class="hero-dot" aria-label="Slide 2"></div>
+          <div class="hero-dot" aria-label="Slide 3"></div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Shop By Category Grid
+           ========================================================================== -->
+      <section style="margin-bottom:3.5rem;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-header-title">Shop by Category</h2>
+            <p class="section-header-subtitle">Browse through our specialized product collections</p>
+          </div>
+          <a href="shop.html" class="section-link">View All Categories →</a>
+        </div>
+
+        <div class="categories-grid">
+          <a href="shop.html?category=Electronics" class="category-card">
+            <div class="category-icon-wrap">
+              <i data-lucide="headphones" style="width:28px;height:28px;"></i>
+            </div>
+            <h3 class="category-name">Electronics</h3>
+            <span class="category-count">6 Products</span>
+          </a>
+
+          <a href="shop.html?category=Fashion" class="category-card">
+            <div class="category-icon-wrap">
+              <i data-lucide="shirt" style="width:28px;height:28px;"></i>
+            </div>
+            <h3 class="category-name">Fashion</h3>
+            <span class="category-count">6 Products</span>
+          </a>
+
+          <a href="shop.html?category=Home+and+Living" class="category-card">
+            <div class="category-icon-wrap">
+              <i data-lucide="home" style="width:28px;height:28px;"></i>
+            </div>
+            <h3 class="category-name">Home & Living</h3>
+            <span class="category-count">6 Products</span>
+          </a>
+
+          <a href="shop.html?category=Beauty+and+Care" class="category-card">
+            <div class="category-icon-wrap">
+              <i data-lucide="sparkles" style="width:28px;height:28px;"></i>
+            </div>
+            <h3 class="category-name">Beauty & Care</h3>
+            <span class="category-count">6 Products</span>
+          </a>
+
+          <a href="shop.html?category=Sports+and+Fitness" class="category-card">
+            <div class="category-icon-wrap">
+              <i data-lucide="activity" style="width:28px;height:28px;"></i>
+            </div>
+            <h3 class="category-name">Sports & Fitness</h3>
+            <span class="category-count">6 Products</span>
+          </a>
+
+          <a href="shop.html?category=Accessories" class="category-card">
+            <div class="category-icon-wrap">
+              <i data-lucide="watch" style="width:28px;height:28px;"></i>
+            </div>
+            <h3 class="category-name">Accessories</h3>
+            <span class="category-count">6 Products</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Today's Deals with Live Flip Countdown
+           ========================================================================== -->
+      <section class="deals-section">
+        <div class="deals-header">
+          <div class="deals-title-wrap">
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.35rem;">
+              <span class="badge badge-deal pulse-deal">FLASH PROMO</span>
+              <span style="color:#CBD5E1;font-size:0.875rem;font-weight:600;">Refreshes Daily</span>
+            </div>
+            <h2>Today's Special Deals</h2>
+            <p>Save between 20% and 40% on limited-stock essentials before the timer runs out.</p>
+          </div>
+
+          <!-- Flip Countdown Clock -->
+          <div class="countdown-timer" aria-label="Deals Countdown">
+            <div class="countdown-box">
+              <span class="countdown-val" id="deal-hours">14</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-box">
+              <span class="countdown-val" id="deal-mins">42</span>
+              <span class="countdown-label">Mins</span>
+            </div>
+            <span class="countdown-sep">:</span>
+            <div class="countdown-box">
+              <span class="countdown-val" id="deal-secs">18</span>
+              <span class="countdown-label">Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deals Products Grid -->
+        <div class="products-grid" id="deals-products-grid">
+          <!-- Populated dynamically via home.js -->
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Featured Products Section
+           ========================================================================== -->
+      <section style="margin-bottom:4rem;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-header-title">Featured Products</h2>
+            <p class="section-header-subtitle">Top-rated bestsellers and editor-selected items</p>
+          </div>
+          <a href="shop.html" class="section-link">Explore Full Store →</a>
+        </div>
+
+        <div class="products-grid" id="featured-products-grid">
+          <!-- Populated dynamically via home.js -->
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           3 Promo Banners Grid
+           ========================================================================== -->
+      <section class="promo-grid">
+        <div class="promo-banner" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80');">
+          <div class="promo-banner-overlay"></div>
+          <div class="promo-banner-content">
+            <span class="badge badge-deal" style="margin-bottom:0.75rem;">FOOTWEAR</span>
+            <h3>Runner Innovation</h3>
+            <p>Cloudfoam cushion engineering for peak endurance.</p>
+            <a href="product.html?id=prod-fash-03" class="btn btn-outline btn-sm" style="color:#fff;border-color:rgba(255,255,255,0.5);">Shop Stride Runners →</a>
+          </div>
+        </div>
+
+        <div class="promo-banner" style="background-image: url('https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800&auto=format&fit=crop&q=80');">
+          <div class="promo-banner-overlay"></div>
+          <div class="promo-banner-content">
+            <span class="badge badge-new" style="margin-bottom:0.75rem;">TIMELESS ACCENTS</span>
+            <h3>Chrono Steel Series</h3>
+            <p>Sapphire crystal glass with Japanese meca-quartz.</p>
+            <a href="product.html?id=prod-acc-03" class="btn btn-outline btn-sm" style="color:#fff;border-color:rgba(255,255,255,0.5);">View Timepieces →</a>
+          </div>
+        </div>
+
+        <div class="promo-banner" style="background-image: url('https://images.unsplash.com/photo-1594035910387-fea47794261f?w=800&auto=format&fit=crop&q=80');">
+          <div class="promo-banner-overlay"></div>
+          <div class="promo-banner-content">
+            <span class="badge badge-deal" style="margin-bottom:0.75rem;">FRAGRANCE</span>
+            <h3>Oud Noir Reserve</h3>
+            <p>Rare smoky woods and warm Bourbon amber notes.</p>
+            <a href="product.html?id=prod-beau-03" class="btn btn-outline btn-sm" style="color:#fff;border-color:rgba(255,255,255,0.5);">Discover Scent →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Best Sellers Section
+           ========================================================================== -->
+      <section style="margin-bottom:4rem;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-header-title">Customer Favourites</h2>
+            <p class="section-header-subtitle">Most-loved products based on verified purchases</p>
+          </div>
+          <a href="shop.html?sort=rating" class="section-link">View Top Rated →</a>
+        </div>
+
+        <div class="products-grid" id="bestsellers-products-grid">
+          <!-- Populated dynamically via home.js -->
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Why Shop With Us (Trust Strip)
+           ========================================================================== -->
+      <section class="trust-strip">
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <i data-lucide="truck" style="width:24px;height:24px;"></i>
+          </div>
+          <div>
+            <h4>Free Shipping</h4>
+            <p>Complimentary delivery on all orders over $50.</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <i data-lucide="rotate-ccw" style="width:24px;height:24px;"></i>
+          </div>
+          <div>
+            <h4>30-Day Easy Returns</h4>
+            <p>Hassle-free exchanges or refunds on every order.</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <i data-lucide="shield-check" style="width:24px;height:24px;"></i>
+          </div>
+          <div>
+            <h4>100% Secure Checkout</h4>
+            <p>End-to-end 256-bit encrypted card verification.</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <i data-lucide="headphones" style="width:24px;height:24px;"></i>
+          </div>
+          <div>
+            <h4>24/7 Dedicated Support</h4>
+            <p>Expert client advisors ready to assist anytime.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           Customer Reviews / Client Feedback
+           ========================================================================== -->
+      <section style="margin-bottom:4rem;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-header-title">What Our Customers Say</h2>
+            <p class="section-header-subtitle">Over 10,000+ satisfied shoppers worldwide</p>
+          </div>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="stars-list">
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+              </div>
+              <span class="verified-badge">
+                <i data-lucide="check" style="width:12px;height:12px;"></i>
+                <span>Verified Buyer</span>
+              </span>
+            </div>
+            <p class="review-text">"The Aura Wireless Headphones exceeded every expectation. Battery lasted through my 14-hour flight with ANC enabled without skipping a beat. Superb craftsmanship."</p>
+            <div class="review-author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Alexander Wright" class="author-avatar" width="48" height="48" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';">
+              <div>
+                <div class="author-name">Alexander Wright</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);">Purchased Aura Wireless</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="stars-list">
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+              </div>
+              <span class="verified-badge">
+                <i data-lucide="check" style="width:12px;height:12px;"></i>
+                <span>Verified Buyer</span>
+              </span>
+            </div>
+            <p class="review-text">"Fast delivery, premium packaging, and the Denim Jacket fits like it was custom tailored. MS STORE is now my first bookmark for everyday wardrobe essentials."</p>
+            <div class="review-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Marcus Thorne" class="author-avatar" width="48" height="48" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';">
+              <div>
+                <div class="author-name">Marcus Thorne</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);">Purchased Denim Jacket</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="stars-list">
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+                <i data-lucide="star" style="width:16px;height:16px;fill:#FBBF24;"></i>
+              </div>
+              <span class="verified-badge">
+                <i data-lucide="check" style="width:12px;height:12px;"></i>
+                <span>Verified Buyer</span>
+              </span>
+            </div>
+            <p class="review-text">"The Glow Vitamin C Serum cleared my sun spots within three weeks. Smooth texture, zero stickiness, and smells freshly botanical. Will definitely order again!"</p>
+            <div class="review-author">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&auto=format&fit=crop&q=80" alt="Sophia Chen" class="author-avatar" width="48" height="48" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';">
+              <div>
+                <div class="author-name">Sophia Chen</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);">Purchased Glow Vitamin C</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       Site Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="color:#fff;" aria-label="MS STORE Homepage">
+            <img src="assets/favicon.svg" alt="MS STORE Logo" class="brand-logo-img" width="34" height="34">
+            <span>MS STORE<span class="accent-dot">.</span></span>
+          </a>
+          <p class="footer-description">Curating exceptional everyday technology, tailored apparel, home living sanctuaries, and beauty essentials.</p>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop All</a>
+            <a href="shop.html?filter=deals">Flash Deals</a>
+            <a href="about.html">About Us</a>
+            <a href="faq.html#privacy">Privacy Policy</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Customer Support -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Customer Support</h4>
+          <div class="footer-links">
+            <a href="account.html">My Account</a>
+            <a href="account.html#orders">Order Tracking</a>
+            <a href="wishlist.html">Saved Wishlist</a>
+            <a href="faq.html">Shipping & Returns</a>
+            <a href="faq.html">Help & FAQs</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Contact Info -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Contact Us</h4>
+          <div class="footer-links">
+            <a href="contact.html">Customer Care Center</a>
+            <span class="footer-contact-item">support@msstore.com</span>
+            <span class="footer-contact-item">+1 (800) 555-0199</span>
+            <span class="footer-contact-item">Mon–Fri: 9am – 6pm EST</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <!-- Mobile-only compact footer (hidden on desktop via CSS) -->
+      <div class="footer-mobile-compact">
+        <div class="footer-mobile-brand">
+          <img src="/assets/favicon.svg" alt="MS STORE Logo" width="24" height="24">
+          <span class="footer-mobile-brand-text">MS STORE<span style="color:var(--primary);">.</span></span>
+        </div>
+        <p class="footer-mobile-desc">Curating exceptional everyday technology, tailored apparel, and home living sanctuaries.</p>
+        <div class="footer-mobile-divider"></div>
+        <div class="footer-mobile-links-grid">
+          <div>
+            <div class="footer-mobile-col-title">Quick Links</div>
+            <a href="account.html#orders" class="footer-mobile-link">Track Order</a>
+            <a href="faq.html" class="footer-mobile-link">Help &amp; FAQs</a>
+          </div>
+          <div>
+            <div class="footer-mobile-col-title">Customer Support</div>
+            <a href="faq.html#privacy" class="footer-mobile-link">Privacy Policy</a>
+            <a href="contact.html" class="footer-mobile-link">Contact Us</a>
+          </div>
+        </div>
+        <div class="footer-mobile-divider"></div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 MS STORE. All rights reserved. Designed for speed, conversion, and reliability.</div>
+        <div class="payment-methods-icons">
+          <span class="payment-badge">VISA</span>
+          <span class="payment-badge">MASTERCARD</span>
+          <span class="payment-badge">AMEX</span>
+          <span class="payment-badge">APPLE PAY</span>
+          <span class="payment-badge">PAYPAL</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Slide-out Mini Cart Drawer
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-slide-drawer" aria-label="Shopping Bag Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <i data-lucide="shopping-bag" style="width:20px;height:20px;color:var(--primary);"></i>
+        <span>Your Shopping Bag</span>
+      </div>
+      <button class="drawer-close-btn" id="cart-drawer-close-btn" aria-label="Close cart">
+        <i data-lucide="x" style="width:20px;height:20px;"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div class="shipping-meter-wrap">
+      <div class="shipping-meter-text" id="free-shipping-meter-text">
+        <span>Add <strong>$50.00</strong> to unlock <strong>FREE Shipping</strong>!</span>
+      </div>
+      <div class="shipping-progress-bar">
+        <div class="shipping-progress-fill" id="free-shipping-progress-fill" style="width:0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items List -->
+    <div class="cart-drawer-body" id="cart-drawer-items-list">
+      <!-- Injected by cart.js -->
+    </div>
+
+    <!-- Cart Drawer Footer -->
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal-row">
+        <span>Subtotal</span>
+        <span id="mini-cart-subtotal">$0.00</span>
+      </div>
+      <div class="drawer-total-row">
+        <span>Estimated Total</span>
+        <span id="mini-cart-total">$0.00</span>
+      </div>
+      <div class="drawer-actions-grid">
+        <a href="cart.html" class="btn btn-outline btn-block">View Bag</a>
+        <a href="checkout.html" class="btn btn-primary btn-block">Checkout</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Mobile Navigation Drawer
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="brand-logo" style="font-size:1.25rem;">
+        <img src="assets/favicon.svg" alt="MS STORE Logo" class="brand-logo-img" width="30" height="30">
+        <span>MS STORE</span>
+      </div>
+      <button class="drawer-close-btn" id="mobile-drawer-close" aria-label="Close menu">
+        <i data-lucide="x" style="width:20px;height:20px;"></i>
+      </button>
+    </div>
+
+    <div class="mobile-nav-body">
+      <div class="mobile-nav-list">
+        <div class="mobile-nav-item"><a href="index.html">Home</a></div>
+        <div class="mobile-nav-item"><a href="shop.html">Shop All Products</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?filter=deals" style="color:var(--accent);">Flash Deals</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Electronics">Electronics</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Fashion">Fashion</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Home+and+Living">Home & Living</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Beauty+and+Care">Beauty & Care</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Sports+and+Fitness">Sports & Fitness</a></div>
+        <div class="mobile-nav-item"><a href="shop.html?category=Accessories">Accessories</a></div>
+        <div style="height:1px;background-color:var(--border-color);margin:0.75rem 0;"></div>
+        <div class="mobile-nav-item"><a href="wishlist.html">Wishlist</a></div>
+        <div class="mobile-nav-item"><a href="cart.html">View Bag</a></div>
+        <div class="mobile-nav-item"><a href="account.html">My Account</a></div>
+        <div class="mobile-nav-item"><a href="about.html">About Us</a></div>
+        <div class="mobile-nav-item"><a href="contact.html">Contact</a></div>
+        <div style="height:1px;background-color:var(--border-color);margin:0.75rem 0;"></div>
+        <div class="mobile-nav-item">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0.5rem;">
+            <span style="font-size:0.95rem;font-weight:600;color:var(--text-main);">Dark Mode</span>
+            <button class="action-btn theme-toggle-btn" aria-label="Toggle dark mode" style="width:36px;height:36px;">
+              <i data-lucide="moon" style="width:18px;height:18px;"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to top">
+    <i data-lucide="arrow-up" style="width:20px;height:20px;"></i>
+  </button>
+
+  <!-- ES6 Modules Scripts -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/firebase-service.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/cart.js"></script>
+  <script type="module" src="js/wishlist.js"></script>
+  <script type="module" src="js/ui.js"></script>
+  <script type="module" src="js/auth-guard.js"></script>
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>
