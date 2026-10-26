@@ -4,6 +4,365 @@
    Guarantees: Zero horizontal scroll, zero clipped UI, fluid clamp typography
    ========================================================================== */
 
+/* ==========================================================================
+   CHECKOUT – Desktop Base Classes (replaces inline styles; 1025px+ unchanged)
+   ========================================================================== */
+
+/* Header SSL badge */
+.checkout-header-inner {
+  justify-content: space-between;
+}
+
+.checkout-ssl-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.checkout-ssl-short {
+  display: none; /* hidden on desktop; shown on mobile instead of full text */
+}
+
+/* Steps bar */
+.checkout-steps-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout-step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.checkout-step-item--inactive {
+  color: var(--text-muted);
+}
+
+.checkout-step-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border-color);
+}
+
+.checkout-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+}
+
+.checkout-step-num--active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.checkout-step-num--inactive {
+  background: var(--slate-200);
+  color: var(--text-main);
+}
+
+/* JS toggles is-active / is-completed on the step item; update the circle */
+.checkout-step-item.is-active .checkout-step-num {
+  background: var(--primary);
+  color: #fff;
+}
+
+.checkout-step-item.is-completed .checkout-step-num {
+  background: var(--success);
+  color: #fff;
+}
+
+.checkout-step-item.is-active {
+  color: var(--text-main);
+}
+
+.checkout-step-item.is-completed {
+  color: var(--text-muted);
+}
+
+/* Main two-column grid */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.checkout-form-col {
+  min-width: 0;
+}
+
+/* Step heading */
+.checkout-step-heading {
+  font-size: clamp(1.4rem, 3vw + 0.5rem, 1.85rem);
+  margin-bottom: 0.5rem;
+}
+
+/* White card wrapper inside each step */
+.checkout-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+/* Two-column form grid inside cards */
+.checkout-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Payment card form specifically keeps margin-bottom */
+.checkout-card-form-grid {
+  margin-bottom: 2rem;
+}
+
+.checkout-span-2 {
+  grid-column: span 2;
+}
+
+/* Button rows */
+.checkout-btn-row {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.checkout-btn-row--end {
+  justify-content: flex-end;
+}
+
+.checkout-btn-row--between {
+  justify-content: space-between;
+}
+
+/* Pay Now button min-width on desktop */
+.checkout-pay-btn {
+  min-width: 200px;
+}
+
+/* Delivery option card layout */
+.checkout-delivery-card {
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.checkout-delivery-card--selected {
+  border: 2px solid var(--primary);
+  background: var(--primary-light);
+}
+
+.checkout-delivery-card--normal {
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+}
+
+.checkout-delivery-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+/* Payment method pills */
+.checkout-pay-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.checkout-pay-pill {
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.checkout-pay-pill--selected {
+  border: 2px solid var(--primary);
+}
+
+.checkout-pay-pill--normal {
+  border: 1px solid var(--border-color);
+}
+
+/* Order summary aside */
+.checkout-summary-aside {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 90px;
+  min-width: 0;
+}
+
+/* Summary price rows */
+.checkout-summary-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+/* Total row */
+.checkout-summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Modal action buttons */
+.checkout-modal-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   ACCOUNT – Desktop Base Classes (replaces inline styles; 1025px+ unchanged)
+   ========================================================================== */
+.account-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.account-sidebar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.account-user-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+}
+
+.account-user-info {
+  min-width: 0;
+}
+
+.account-user-name {
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account-user-email {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.account-nav-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+
+.account-nav-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0.5rem 0;
+}
+
+.account-content {
+  min-width: 0;
+}
+
+.account-heading {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.account-subheading {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.account-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.account-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.account-address-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.checkout-span-2 {
+  grid-column: span 2;
+}
+
+/* Custom mobile sort dropdown base: hidden on desktop */
+.mobile-sort-custom {
+  display: none;
+}
+
 /* Universal Layout & Table Scrollers */
 html, body {
   max-width: 100%;
@@ -201,15 +560,198 @@ h3 { font-size: clamp(1.15rem, 2.5vw + 0.2rem, 1.45rem); }
     flex-wrap: wrap !important;
   }
 
-  /* Checkout layout */
+  /* Checkout layout – full single column */
   .checkout-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.5rem !important;
   }
 
-  /* Account layout */
-  .account-grid {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+  .checkout-form-col,
+  .checkout-summary-aside {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Summary: not sticky on tablet/mobile */
+  .checkout-summary-aside {
+    position: static !important;
+  }
+
+  /* Steps bar: tighten gap */
+  .checkout-steps-bar {
+    gap: 0.75rem !important;
+    margin-bottom: 2rem !important;
+    max-width: 100% !important;
+  }
+
+  /* ==========================================================================
+     ACCOUNT LAYOUT & SECTIONS (<= 1024px)
+     ========================================================================== */
+  .account-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .account-layout > * {
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .account-sidebar {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .account-user-card {
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .account-user-info {
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .account-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    gap: 0.5rem !important;
+    padding-bottom: 4px !important;
+    width: 100% !important;
+  }
+
+  .account-nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .account-nav-btn {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-height: 44px !important;
+    height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0 1rem !important;
+    white-space: nowrap !important;
+    border-radius: var(--radius-sm) !important;
+    position: relative !important;
+    font-size: 0.875rem !important;
+    border-bottom: 2px solid transparent !important;
+    box-sizing: border-box !important;
+  }
+
+  .account-nav-btn.active {
+    border-bottom: 2px solid var(--primary, #4F46E5) !important;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+    color: var(--primary, #4F46E5) !important;
+    font-weight: 600 !important;
+  }
+
+  .account-nav-divider {
+    display: none !important;
+  }
+
+  .account-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .account-heading {
+    font-size: clamp(1.3rem, 5vw, 1.8rem) !important;
+  }
+
+  .account-subheading {
+    font-size: 0.85rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .account-card {
+    padding: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .account-order-card {
+    padding: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .account-order-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .account-order-header-right {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+
+  .account-order-item-row {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .account-address-card {
+    padding: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+
+  .account-address-info {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  #order-track-modal .modal-dialog {
+    width: calc(100% - 32px) !important;
+    max-width: 480px !important;
+    margin: auto !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    padding: 1.5rem 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  #order-track-modal .modal-dialog * {
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  #track-modal-close {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -799,31 +1341,303 @@ h3 { font-size: clamp(1.15rem, 2.5vw + 0.2rem, 1.45rem); }
     font-size: 0.9rem !important;
   }
 
-  /* Checkout Steps Bar */
+  /* ============================================================
+     CHECKOUT – Mobile overrides (≤640px)
+     Desktop (≥1025px) is completely untouched.
+     ============================================================ */
+
+  /* 1. Header: show short SSL text, hide long version */
+  .checkout-ssl-full {
+    display: none !important;
+  }
+  .checkout-ssl-short {
+    display: inline !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .checkout-ssl-badge {
+    font-size: 11px !important;
+    gap: 0.3rem !important;
+    flex-shrink: 1 !important;
+    overflow: hidden !important;
+  }
+
+  /* 2. Steps bar – compact, fits 320px */
   .checkout-steps-bar {
-    gap: 0.35rem !important;
+    gap: 0.25rem !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .checkout-step-item {
+    gap: 0.3rem !important;
+    flex-shrink: 0 !important;
   }
 
   .step-label {
     display: none !important;
   }
 
-  .checkout-ssl-text {
-    display: none !important;
+  .checkout-step-num {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 0.75rem !important;
   }
 
-  .credit-card-preview-wrap {
-    max-width: 100% !important;
-    height: 195px !important;
+  .checkout-step-line {
+    min-width: 20px !important;
   }
 
-  .card-face {
+  /* 3. Page container padding */
+  .checkout-card {
     padding: 1rem !important;
   }
 
-  .card-number-display {
-    font-size: 1rem !important;
-    letter-spacing: 1px !important;
+  /* 4. Form grids → single column on ≤640px */
+  .checkout-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .checkout-span-2 {
+    grid-column: span 1 !important;
+  }
+
+  /* 5. Delivery option cards */
+  .checkout-delivery-card {
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+    padding: 0.85rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .checkout-delivery-left {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    align-items: flex-start !important;
+    gap: 0.6rem !important;
+  }
+
+  /* 6. Payment method pills → stack vertically */
+  .checkout-pay-methods {
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .checkout-pay-pill {
+    padding: 0.85rem !important;
+  }
+
+  /* 7. Card preview – Sharp, crisp, real CSS dimensions, zero 3D subpixel blur at rest */
+  .credit-card-preview-wrap {
+    width: 100% !important;
+    max-width: 340px !important;
+    height: auto !important;
+    aspect-ratio: 1.586 !important;
+    margin: 0 auto 1.5rem !important;
+    perspective: 1000px !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25) !important;
+    border-radius: var(--radius-lg) !important;
+    background: transparent !important;
+  }
+
+  .credit-card-inner {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transform-style: preserve-3d !important;
+    will-change: auto !important;
+  }
+
+  .credit-card-preview-wrap.is-flipped .credit-card-inner {
+    transform: rotateY(180deg) !important;
+  }
+
+  .card-face {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: clamp(14px, 5vw, 20px) !important;
+    box-shadow: none !important; /* Box-shadow on outer wrap only to prevent softening inner content */
+    border-radius: var(--radius-lg) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  /* Front face at rest: transform none prevents 3D composite layer subpixel blur */
+  .credit-card-preview-wrap:not(.is-flipped) .card-front {
+    transform: none !important;
+  }
+
+  .card-front {
+    background: linear-gradient(135deg, #1E1B4B 0%, #4338CA 50%, #6366F1 100%) !important;
+  }
+
+  .card-back {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+    transform: rotateY(180deg) !important;
+    padding: clamp(12px, 4vw, 16px) 0 !important;
+  }
+
+  .card-brand-logo,
+  #preview-card-brand-logo {
+    font-size: clamp(15px, 4vw, 16px) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+  }
+
+  .card-number-display,
+  #preview-card-number {
+    font-size: clamp(15px, 5vw, 20px) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+    white-space: nowrap !important;
+  }
+
+  .card-label {
+    font-size: clamp(10px, 2.8vw, 11px) !important;
+    font-weight: 600 !important;
+    color: #FFFFFF !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    -webkit-font-smoothing: antialiased !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .card-holder-name,
+  #preview-card-name,
+  .card-expiry-display,
+  #preview-card-expiry {
+    font-size: clamp(13px, 3.6vw, 14px) !important;
+    font-weight: 600 !important;
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+  }
+
+  .card-chip {
+    width: 44px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+    filter: none !important;
+  }
+
+  .card-chip svg {
+    display: block !important;
+    width: 44px !important;
+    height: 32px !important;
+  }
+
+  /* 8. Button rows → stack, full width, Pay Now on top */
+  .checkout-btn-row {
+    flex-direction: column-reverse !important;
+    gap: 0.65rem !important;
+    align-items: stretch !important;
+    margin-top: 1.25rem !important;
+  }
+
+  /* Step 1 "Continue to Delivery" only row – keep normal column direction */
+  .checkout-btn-row--end {
+    flex-direction: column !important;
+  }
+
+  .checkout-btn-row .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+  }
+
+  /* Pay Now stays on top (reverse order: Pay Now rendered last → visually first) */
+  .checkout-pay-btn {
+    min-width: 0 !important;
+    width: 100% !important;
+    order: -1 !important;
+  }
+
+  /* 9. Summary aside */
+  .checkout-summary-aside {
+    position: static !important;
+    padding: 1rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* 10. Summary items: prevent overflow */
+  #checkout-items-list {
+    max-height: 220px !important;
+  }
+
+  .checkout-summary-row,
+  .checkout-summary-total {
+    gap: 0.5rem !important;
+    flex-wrap: nowrap !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  /* 11. Modal – stacked, scrollable */
+  .modal-dialog {
+    width: calc(100% - 32px) !important;
+    max-width: 420px !important;
+    padding: 1.5rem 1rem !important;
+    margin: auto !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+
+  .checkout-modal-actions {
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+  }
+
+  .checkout-modal-actions .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+  }
+
+  /* 12. Toast / notifications – stay within screen */
+  .toast-container,
+  [class*="toast"] {
+    max-width: calc(100vw - 32px) !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+
+  /* 13. Long words never break layout */
+  .checkout-card,
+  .checkout-summary-aside,
+  .checkout-delivery-card,
+  .checkout-pay-pill {
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
   }
 
   /* Mobile Inputs Font-size & Touch Targets (Prevents iOS zoom) */
@@ -974,25 +1788,243 @@ h3 { font-size: clamp(1.15rem, 2.5vw + 0.2rem, 1.45rem); }
     display: none !important;
   }
 
-  /* Toolbar wraps to two rows on mobile */
+  /* ==========================================================================
+     PROBLEM 1: Custom Mobile Sort & Toolbar Fit (<= 640px)
+     ========================================================================== */
   .shop-toolbar {
+    display: flex !important;
     flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  .shop-results-count {
+    font-size: 0.8125rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
   }
 
   .shop-toolbar-controls {
-    flex-wrap: wrap !important;
-    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    justify-content: flex-end !important;
+  }
+
+  #mobile-filter-open-btn-toolbar {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 0.75rem !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
   }
 
   .shop-sort-wrap {
-    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    position: relative !important;
   }
 
+  .shop-sort-label {
+    font-size: 0.8125rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    color: var(--text-muted) !important;
+  }
+
+  /* Hide native select on <= 640px */
   .shop-sort-select {
+    display: none !important;
+  }
+
+  /* Show custom mobile sort dropdown */
+  .mobile-sort-custom {
+    display: block !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    position: relative !important;
+  }
+
+  .mobile-sort-btn {
     width: 100% !important;
-    font-size: 14px !important;
+    min-width: 0 !important;
+    height: 40px !important;
     min-height: 40px !important;
+    padding: 0.35rem 0.6rem !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-sm) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.35rem !important;
+    cursor: pointer !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: var(--text-main) !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-sort-label {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .mobile-sort-chevron {
+    flex-shrink: 0 !important;
+    transition: transform 0.2s ease !important;
+  }
+
+  .mobile-sort-custom.is-open .mobile-sort-chevron {
+    transform: rotate(180deg) !important;
+  }
+
+  .mobile-sort-backdrop {
+    display: none !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 120 !important;
+    background: rgba(15, 23, 42, 0.3) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+    backdrop-filter: blur(2px) !important;
+  }
+
+  .mobile-sort-custom.is-open .mobile-sort-backdrop {
+    display: block !important;
+  }
+
+  .mobile-sort-menu {
+    display: none !important;
+    position: absolute !important;
+    top: calc(100% + 6px) !important;
+    right: 0 !important;
+    width: calc(100vw - 32px) !important;
+    max-width: 280px !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    z-index: 130 !important;
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0.35rem !important;
+    margin: 0 !important;
+    list-style: none !important;
+    outline: none !important;
+  }
+
+  .mobile-sort-custom.is-open .mobile-sort-menu {
+    display: block !important;
+  }
+
+  .mobile-sort-option {
+    min-height: 48px !important;
+    height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 1rem !important;
+    border-radius: var(--radius-sm) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: var(--text-main) !important;
+    cursor: pointer !important;
+    transition: background 0.15s ease, color 0.15s ease !important;
+    user-select: none !important;
+  }
+
+  .mobile-sort-option:hover,
+  .mobile-sort-option:focus {
+    background: var(--slate-100) !important;
+    outline: none !important;
+  }
+
+  .mobile-sort-option.is-selected {
+    background: rgba(79, 70, 229, 0.1) !important;
+    color: var(--primary, #4F46E5) !important;
+    font-weight: 600 !important;
+  }
+
+  .mobile-sort-check {
+    display: none !important;
+  }
+
+  .mobile-sort-option.is-selected .mobile-sort-check {
+    display: inline-block !important;
+    color: var(--primary, #4F46E5) !important;
+  }
+
+  /* ==========================================================================
+     PROBLEM 3: Account Forms & Inputs (<= 640px)
+     ========================================================================== */
+  .account-layout {
+    gap: 1rem !important;
+  }
+
+  .account-form-grid,
+  .account-address-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .account-form-grid > .form-group,
+  .account-address-form-grid > .form-group,
+  .checkout-span-2 {
+    grid-column: span 1 !important;
+  }
+
+  .account-card .form-control,
+  .account-card select.form-control,
+  .account-card input.form-control {
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    font-size: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .account-card .btn,
+  .account-submit-btn {
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    font-size: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .account-address-card .btn-delete-address {
+    width: 100% !important;
+    min-height: 44px !important;
+    height: 44px !important;
+  }
+
+  .account-order-header-right .btn-track-order {
+    width: 100% !important;
+    min-height: 44px !important;
+    height: 44px !important;
   }
 }
 

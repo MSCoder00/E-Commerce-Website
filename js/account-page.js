@@ -23,13 +23,13 @@ class AccountPage {
 
     this.user = getCurrentUser();
     this.setupTabs();
-    this.renderUserProfileHeader();
-    await this.loadProfileData();
-    await this.loadOrders();
     this.setupProfileForm();
     this.setupAddressBook();
     this.setupLogout();
     this.checkHashRoute();
+    this.renderUserProfileHeader();
+    await this.loadProfileData();
+    await this.loadOrders();
   }
 
   checkHashRoute() {
@@ -102,7 +102,7 @@ class AccountPage {
       const newPhone = document.getElementById("profile-phone-input").value.trim();
 
       const updated = {
-        ...this.profileData,
+        ...(this.profileData || {}),
         displayName: newName,
         phone: newPhone
       };
@@ -131,11 +131,11 @@ class AccountPage {
     }
 
     listEl.innerHTML = addresses.map((addr, i) => `
-      <div style="background:var(--slate-50);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
-        <div>
+      <div class="account-address-card" style="background:var(--slate-50);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+        <div class="account-address-info">
           <div style="font-weight:700;font-size:0.95rem;margin-bottom:0.25rem;">${addr.label || "Delivery Address"}</div>
-          <div style="font-size:0.875rem;color:var(--text-main);">${addr.address}, ${addr.city}, ${addr.zip}</div>
-          <div style="font-size:0.775rem;color:var(--text-muted);">${addr.country} â€¢ Phone: ${addr.phone || "N/A"}</div>
+          <div style="font-size:0.875rem;color:var(--text-main);overflow-wrap:anywhere;">${addr.address}, ${addr.city}, ${addr.zip}</div>
+          <div style="font-size:0.775rem;color:var(--text-muted);overflow-wrap:anywhere;">${addr.country} • Phone: ${addr.phone || "N/A"}</div>
         </div>
         <button class="btn btn-outline btn-sm btn-delete-address" data-index="${i}" style="color:var(--danger);border-color:var(--border-color);">
           <i data-lucide="trash-2" style="width:14px;height:14px;"></i>
@@ -207,10 +207,10 @@ class AccountPage {
     }
 
     listEl.innerHTML = this.orders.map(order => `
-      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow-xs);">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-bottom:1rem;margin-bottom:1rem;border-bottom:1px solid var(--border-color);">
-          <div>
-            <div style="display:flex;align-items:center;gap:0.75rem;">
+      <div class="account-order-card" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow-xs);">
+        <div class="account-order-header" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-bottom:1rem;margin-bottom:1rem;border-bottom:1px solid var(--border-color);">
+          <div class="account-order-header-info">
+            <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
               <strong style="font-family:monospace;font-size:1.05rem;color:var(--primary);">${order.orderId}</strong>
               <span class="badge badge-new" style="background:var(--success-light);color:var(--success);">${order.orderStatus || "Processing"}</span>
             </div>
@@ -218,7 +218,7 @@ class AccountPage {
               Placed on ${new Date(order.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:1rem;">
+          <div class="account-order-header-right" style="display:flex;align-items:center;gap:1rem;">
             <div style="text-align:right;">
               <div style="font-size:0.75rem;color:var(--text-muted);">Total Paid</div>
               <strong style="font-size:1.15rem;color:var(--text-main);">$${order.total.toFixed(2)}</strong>
@@ -233,12 +233,12 @@ class AccountPage {
         <!-- Ordered Items Preview -->
         <div style="display:flex;flex-direction:column;gap:0.6rem;">
           ${(order.items || []).map(item => `
-            <div style="display:flex;align-items:center;justify-content:space-between;font-size:0.875rem;">
-              <a href="${getProductUrl(item.productId)}" style="display:flex;align-items:center;gap:0.75rem;color:inherit;text-decoration:none;">
-                <img src="${item.image || '/assets/images/placeholder.svg'}" alt="${item.name}" width="40" height="40" loading="lazy" style="width:40px;height:40px;border-radius:var(--radius-xs);object-fit:cover;background:var(--slate-100);" onerror="this.onerror=null;this.src='/assets/images/placeholder.svg';">
-                <span>${item.name}${item.variant ? ` <span style="color:var(--text-muted);font-size:0.8rem;">(${item.variant})</span>` : ""} &times; <strong>${item.quantity}</strong></span>
+            <div class="account-order-item-row" style="display:flex;align-items:center;justify-content:space-between;font-size:0.875rem;">
+              <a href="${getProductUrl(item.productId)}" class="account-order-item-link" style="display:flex;align-items:center;gap:0.75rem;color:inherit;text-decoration:none;min-width:0;">
+                <img src="${item.image || '/assets/images/placeholder.svg'}" alt="${item.name}" width="40" height="40" loading="lazy" style="width:40px;height:40px;border-radius:var(--radius-xs);object-fit:cover;background:var(--slate-100);flex-shrink:0;" onerror="this.onerror=null;this.src='/assets/images/placeholder.svg';">
+                <span style="overflow-wrap:anywhere;">${item.name}${item.variant ? ` <span style="color:var(--text-muted);font-size:0.8rem;">(${item.variant})</span>` : ""} &times; <strong>${item.quantity}</strong></span>
               </a>
-              <span style="font-weight:600;">$${(item.price * item.quantity).toFixed(2)}</span>
+              <span style="font-weight:600;white-space:nowrap;margin-left:0.5rem;">$${(item.price * item.quantity).toFixed(2)}</span>
             </div>
           `).join("")}
         </div>

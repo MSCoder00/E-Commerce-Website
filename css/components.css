@@ -883,9 +883,8 @@
    ========================================================================== */
 .credit-card-preview-wrap {
   perspective: 1000px;
-  width: 100%;
-  max-width: 360px;
-  height: 215px;
+  width: 360px;
+  height: 220px;
   margin: 0 auto 1.75rem;
 }
 
@@ -894,6 +893,7 @@
   width: 100%;
   height: 100%;
   text-align: left;
+  transform: none;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   transform-style: preserve-3d;
 }
@@ -904,6 +904,7 @@
 
 .card-face {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -915,10 +916,14 @@
   flex-direction: column;
   justify-content: space-between;
   color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .card-front {
   background: linear-gradient(135deg, #1E1B4B 0%, #4338CA 50%, #6366F1 100%);
+  transform: rotateY(0deg);
 }
 
 .card-back {
@@ -927,19 +932,33 @@
   padding: 1.25rem 0;
 }
 
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card-chip {
-  width: 42px;
+  width: 44px;
   height: 32px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
+  flex-shrink: 0;
+}
+
+.card-brand-logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-size: 1.15rem;
+  color: #FFFFFF;
 }
 
 .card-number-display {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1.25rem;
+  font-size: clamp(20px, 4.5vw, 22px);
   font-weight: 700;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  text-shadow: none;
 }
 
 .card-details-row {
@@ -948,16 +967,28 @@
   align-items: flex-end;
 }
 
-.card-holder-name {
-  font-size: 0.85rem;
+.card-label {
+  font-size: 14px;
   font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.card-holder-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .card-expiry-display {
-  font-size: 0.85rem;
+  font-size: 14px;
   font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
 }
 
 .card-magnetic-strip {
@@ -980,6 +1011,14 @@
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
   font-size: 1rem;
+}
+
+.card-back-footer {
+  padding: 0 1.5rem;
+  font-size: 12px;
+  color: #FFFFFF;
+  text-align: right;
+  opacity: 0.85;
 }
 
 /* ==========================================================================

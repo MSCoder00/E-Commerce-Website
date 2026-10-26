@@ -264,13 +264,16 @@ class CheckoutPage {
     const displayCvv = document.getElementById("preview-card-cvv");
     const brandLogo = document.getElementById("preview-card-brand-logo");
 
-    // 1. Card Number input formatting (groups of 4)
+    // 1. Card Number input formatting (groups of 4 with placeholder dots in preview)
     cardNumInput?.addEventListener("input", (e) => {
       let val = e.target.value.replace(/\D/g, "").substring(0, 16);
       let formatted = val.match(/.{1,4}/g)?.join(" ") || "";
       e.target.value = formatted;
 
-      displayNum.textContent = formatted || "•••• •••• •••• ••••";
+      // Show typed digits in groups with placeholders: e.g. "3235 5252 3••• ••••"
+      let padded = val.padEnd(16, "•");
+      let previewFormatted = padded.match(/.{1,4}/g).join(" ");
+      displayNum.textContent = previewFormatted;
 
       // Detect brand
       if (val.startsWith("4")) {
@@ -288,14 +291,20 @@ class CheckoutPage {
       displayName.textContent = val || "CARDHOLDER NAME";
     });
 
-    // 3. Expiry date MM/YY formatting
+    // 3. Expiry date MM/YY formatting (keeps MM/YY until all 4 digits are entered)
     cardExpiryInput?.addEventListener("input", (e) => {
       let val = e.target.value.replace(/\D/g, "").substring(0, 4);
+      let formatted = val;
       if (val.length >= 3) {
-        val = `${val.substring(0, 2)}/${val.substring(2)}`;
+        formatted = `${val.substring(0, 2)}/${val.substring(2)}`;
       }
-      e.target.value = val;
-      displayExpiry.textContent = val || "MM/YY";
+      e.target.value = formatted;
+
+      if (val.length === 4) {
+        displayExpiry.textContent = formatted;
+      } else {
+        displayExpiry.textContent = "MM/YY";
+      }
     });
 
     // 4. CVV & 3D Flip Event

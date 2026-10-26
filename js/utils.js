@@ -9,15 +9,16 @@
  * @param {Object|string} product - The product object or product ID
  * @returns {string} The canonical product detail URL, e.g. "/product.html?id=prod-elec-01"
  */
-export function getProductUrl(product) {
-  if (!product) return "/product.html";
+export function getProductUrl(p) {
+  if (!p) return "/product.html";
   let id = "";
-  if (typeof product === "string") {
-    id = product.trim();
-  } else if (typeof product === "object") {
-    id = (product.id || product.productId || "").toString().trim();
+  if (typeof p === "string") {
+    id = p.trim();
+  } else if (typeof p === "object") {
+    id = (p.id || p.productId || p.docId || (p.doc && p.doc.id) || "").toString().trim();
   }
-  return `/product.html?id=${encodeURIComponent(id)}`;
+  if (!id) return "/product.html";
+  return "/product.html?id=" + encodeURIComponent(id);
 }
 
 // Expose on window for convenience

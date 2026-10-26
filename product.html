@@ -177,7 +177,7 @@
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap;">
             <div class="drawer-qty-control" style="height:48px;">
               <button id="pdp-qty-minus" class="drawer-qty-btn" style="width:40px;height:46px;font-size:1.1rem;">−</button>
-              <span id="pdp-qty-val" class="drawer-qty-val" style="width:48px;font-size:1rem;">1</span>
+              <input type="number" id="pdp-qty-val" class="drawer-qty-val" value="1" min="1" max="99" style="width:48px;font-size:1rem;border:none;background:transparent;text-align:center;padding:0;outline:none;font-weight:600;color:var(--text-main);-moz-appearance:textfield;" aria-label="Product quantity">
               <button id="pdp-qty-plus" class="drawer-qty-btn" style="width:40px;height:46px;font-size:1.1rem;">+</button>
             </div>
 
@@ -302,6 +302,19 @@
         </div>
 
         <div class="products-grid" id="pdp-related-products-grid">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- Recently Viewed Products -->
+      <section id="pdp-recently-viewed-section" style="display:none;margin-top:3.5rem;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-header-title">Recently Viewed</h2>
+            <p class="section-header-subtitle">Pick up right where you left off</p>
+          </div>
+        </div>
+        <div class="products-grid" id="pdp-recently-viewed-grid">
           <!-- Populated dynamically -->
         </div>
       </section>

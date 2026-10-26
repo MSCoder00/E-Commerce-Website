@@ -39,15 +39,16 @@
   <!-- Sticky Minimal Checkout Header -->
   <header class="site-header">
     <div class="container">
-      <div class="header-inner" style="justify-content:space-between;">
+      <div class="header-inner checkout-header-inner">
         <a href="index.html" class="brand-logo">
           <div class="brand-icon"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i></div>
           <span>MS STORE<span class="accent-dot">.</span></span>
         </a>
 
-        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-muted);">
-          <i data-lucide="lock" style="width:16px;height:16px;color:var(--success);"></i>
-          <span>256-Bit SSL Encrypted Checkout</span>
+        <div class="checkout-ssl-badge">
+          <i data-lucide="lock" style="width:16px;height:16px;color:var(--success);flex-shrink:0;"></i>
+          <span class="checkout-ssl-full">256-Bit SSL Encrypted Checkout</span>
+          <span class="checkout-ssl-short">Secure Checkout</span>
         </div>
       </div>
     </div>
@@ -57,39 +58,39 @@
     <div class="container">
 
       <!-- Step Indicator Progress Bar -->
-      <div class="checkout-steps-bar" style="display:flex;align-items:center;justify-content:center;gap:2rem;margin-bottom:3rem;max-width:650px;margin-left:auto;margin-right:auto;">
-        <div id="step-ind-1" class="step-indicator is-active" style="display:flex;align-items:center;gap:0.5rem;font-weight:600;font-size:0.9rem;">
-          <span style="width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.8125rem;">1</span>
+      <div class="checkout-steps-bar">
+        <div id="step-ind-1" class="step-indicator is-active checkout-step-item">
+          <span class="checkout-step-num checkout-step-num--active">1</span>
           <span class="step-label">Shipping</span>
         </div>
-        <div style="flex:1;height:2px;background:var(--border-color);"></div>
-        <div id="step-ind-2" class="step-indicator" style="display:flex;align-items:center;gap:0.5rem;font-weight:600;font-size:0.9rem;color:var(--text-muted);">
-          <span style="width:28px;height:28px;border-radius:50%;background:var(--slate-200);color:var(--text-main);display:flex;align-items:center;justify-content:center;font-size:0.8125rem;">2</span>
+        <div class="checkout-step-line"></div>
+        <div id="step-ind-2" class="step-indicator checkout-step-item checkout-step-item--inactive">
+          <span class="checkout-step-num checkout-step-num--inactive">2</span>
           <span class="step-label">Delivery</span>
         </div>
-        <div style="flex:1;height:2px;background:var(--border-color);"></div>
-        <div id="step-ind-3" class="step-indicator" style="display:flex;align-items:center;gap:0.5rem;font-weight:600;font-size:0.9rem;color:var(--text-muted);">
-          <span style="width:28px;height:28px;border-radius:50%;background:var(--slate-200);color:var(--text-main);display:flex;align-items:center;justify-content:center;font-size:0.8125rem;">3</span>
+        <div class="checkout-step-line"></div>
+        <div id="step-ind-3" class="step-indicator checkout-step-item checkout-step-item--inactive">
+          <span class="checkout-step-num checkout-step-num--inactive">3</span>
           <span class="step-label">Payment</span>
         </div>
       </div>
 
       <!-- Checkout Layout: Wizard Form + Sticky Summary -->
-      <div class="checkout-grid" style="display:grid;grid-template-columns:1fr 400px;gap:3rem;align-items:start;">
+      <div class="checkout-grid">
 
         <!-- Left: Wizard Steps -->
-        <div>
+        <div class="checkout-form-col">
 
           <!-- ==========================================================================
                STEP 1: Shipping Details
                ========================================================================== -->
           <div id="step-1-shipping">
-            <h2 style="font-size:1.5rem;margin-bottom:0.5rem;">Shipping Address</h2>
+            <h2 class="checkout-step-heading">Shipping Address</h2>
             <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">Enter the destination where your order should be safely delivered.</p>
 
-            <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;">
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-                <div class="form-group" style="grid-column:span 2;">
+            <div class="checkout-card">
+              <div class="checkout-form-grid">
+                <div class="form-group checkout-span-2">
                   <label class="form-label" for="shipping-fullname">Full Name *</label>
                   <input type="text" id="shipping-fullname" class="form-control" placeholder="e.g. Eleanor Vance" required>
                 </div>
@@ -104,7 +105,7 @@
                   <input type="tel" id="shipping-phone" class="form-control" placeholder="+1 (555) 019-2834" required>
                 </div>
 
-                <div class="form-group" style="grid-column:span 2;">
+                <div class="form-group checkout-span-2">
                   <label class="form-label" for="shipping-address">Street Address *</label>
                   <input type="text" id="shipping-address" class="form-control" placeholder="Apartment, suite, unit, or street number" required>
                 </div>
@@ -119,7 +120,7 @@
                   <input type="text" id="shipping-zip" class="form-control" placeholder="e.g. 94107" required>
                 </div>
 
-                <div class="form-group" style="grid-column:span 2;">
+                <div class="form-group checkout-span-2">
                   <label class="form-label" for="shipping-country">Country *</label>
                   <select id="shipping-country" class="form-control">
                     <option value="United States">United States</option>
@@ -133,7 +134,7 @@
                 </div>
               </div>
 
-              <div style="display:flex;justify-content:flex-end;margin-top:1.5rem;">
+              <div class="checkout-btn-row checkout-btn-row--end">
                 <button type="button" class="btn btn-primary btn-lg" id="btn-to-step-2">
                   <span>Continue to Delivery</span>
                   <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
@@ -146,39 +147,39 @@
                STEP 2: Delivery Method
                ========================================================================== -->
           <div id="step-2-delivery" style="display:none;">
-            <h2 style="font-size:1.5rem;margin-bottom:0.5rem;">Choose Delivery Method</h2>
+            <h2 class="checkout-step-heading">Choose Delivery Method</h2>
             <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">Select your preferred transit speed for shipment.</p>
 
-            <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;">
+            <div class="checkout-card">
               <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;">
 
                 <!-- Standard Option -->
-                <div class="delivery-option-card is-selected" style="border:2px solid var(--primary);background:var(--primary-light);border-radius:var(--radius-md);padding:1.25rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                  <div style="display:flex;align-items:center;gap:1rem;">
-                    <input type="radio" name="delivery-method" value="standard" checked style="accent-color:var(--primary);width:18px;height:18px;">
+                <div class="delivery-option-card is-selected checkout-delivery-card checkout-delivery-card--selected">
+                  <div class="checkout-delivery-left">
+                    <input type="radio" name="delivery-method" value="standard" checked style="accent-color:var(--primary);width:18px;height:18px;flex-shrink:0;">
                     <div>
                       <div style="font-weight:700;font-size:0.95rem;">Standard Worldwide Delivery</div>
                       <div style="font-size:0.8125rem;color:var(--text-muted);">Estimated delivery: 3 to 5 business days</div>
                     </div>
                   </div>
-                  <div style="font-weight:700;color:var(--success);">FREE</div>
+                  <div style="font-weight:700;color:var(--success);white-space:nowrap;">FREE</div>
                 </div>
 
                 <!-- Express Option -->
-                <div class="delivery-option-card" style="border:1px solid var(--border-color);background:var(--bg-card);border-radius:var(--radius-md);padding:1.25rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                  <div style="display:flex;align-items:center;gap:1rem;">
-                    <input type="radio" name="delivery-method" value="express" style="accent-color:var(--primary);width:18px;height:18px;">
+                <div class="delivery-option-card checkout-delivery-card checkout-delivery-card--normal">
+                  <div class="checkout-delivery-left">
+                    <input type="radio" name="delivery-method" value="express" style="accent-color:var(--primary);width:18px;height:18px;flex-shrink:0;">
                     <div>
                       <div style="font-weight:700;font-size:0.95rem;">Express Priority Courier</div>
                       <div style="font-size:0.8125rem;color:var(--text-muted);">Estimated delivery: 1 to 2 business days with priority dispatch</div>
                     </div>
                   </div>
-                  <div style="font-weight:700;color:var(--text-main);">$15.00</div>
+                  <div style="font-weight:700;color:var(--text-main);white-space:nowrap;">$15.00</div>
                 </div>
 
               </div>
 
-              <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div class="checkout-btn-row checkout-btn-row--between">
                 <button type="button" class="btn btn-outline" id="btn-back-to-step-1">
                   <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
                   <span>Back to Shipping</span>
@@ -195,23 +196,23 @@
                STEP 3: Payment Section
                ========================================================================== -->
           <div id="step-3-payment" style="display:none;">
-            <h2 style="font-size:1.5rem;margin-bottom:0.5rem;">Payment Method</h2>
+            <h2 class="checkout-step-heading">Payment Method</h2>
             <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">All transactions are encrypted and processed with bank-level security.</p>
 
-            <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;">
+            <div class="checkout-card">
 
               <!-- Method Switcher Pills -->
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-                <div id="pay-method-card" class="is-selected" style="border:2px solid var(--primary);border-radius:var(--radius-md);padding:1rem;display:flex;align-items:center;gap:0.75rem;cursor:pointer;">
-                  <input type="radio" name="pay-type" value="card" checked style="accent-color:var(--primary);">
+              <div class="checkout-pay-methods">
+                <div id="pay-method-card" class="is-selected checkout-pay-pill checkout-pay-pill--selected">
+                  <input type="radio" name="pay-type" value="card" checked style="accent-color:var(--primary);flex-shrink:0;">
                   <div>
                     <div style="font-weight:700;font-size:0.9rem;">Credit / Debit Card</div>
                     <div style="font-size:0.75rem;color:var(--text-muted);">Visa, Mastercard, Amex</div>
                   </div>
                 </div>
 
-                <div id="pay-method-cod" style="border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1rem;display:flex;align-items:center;gap:0.75rem;cursor:pointer;">
-                  <input type="radio" name="pay-type" value="cod" style="accent-color:var(--primary);">
+                <div id="pay-method-cod" class="checkout-pay-pill checkout-pay-pill--normal">
+                  <input type="radio" name="pay-type" value="cod" style="accent-color:var(--primary);flex-shrink:0;">
                   <div>
                     <div style="font-weight:700;font-size:0.9rem;">Cash on Delivery</div>
                     <div style="font-size:0.75rem;color:var(--text-muted);">Pay upon arrival</div>
@@ -227,18 +228,37 @@
                   <div class="credit-card-inner">
                     <!-- Front -->
                     <div class="card-face card-front">
-                      <div style="display:flex;justify-content:space-between;align-items:center;">
-                        <div class="card-chip"></div>
-                        <span id="preview-card-brand-logo" style="font-family:var(--font-heading);font-weight:800;letter-spacing:1px;font-size:1.1rem;">VISA</span>
+                      <div class="card-top-row">
+                        <div class="card-chip">
+                          <svg width="44" height="32" viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+                            <rect width="44" height="32" rx="6" fill="url(#chip-grad)"/>
+                            <rect x="0.5" y="0.5" width="43" height="31" rx="5.5" stroke="#D97706" stroke-opacity="0.7"/>
+                            <path d="M0 11H15C17.2 11 19 12.8 19 15V17C19 19.2 17.2 21 15 21H0" stroke="#78350F" stroke-width="1.2"/>
+                            <path d="M44 11H29C26.8 11 25 12.8 25 15V17C25 19.2 26.8 21 29 21H44" stroke="#78350F" stroke-width="1.2"/>
+                            <path d="M19 16H25" stroke="#78350F" stroke-width="1.2"/>
+                            <path d="M15 0V11" stroke="#78350F" stroke-width="1.2"/>
+                            <path d="M15 21V32" stroke="#78350F" stroke-width="1.2"/>
+                            <path d="M29 0V11" stroke="#78350F" stroke-width="1.2"/>
+                            <path d="M29 21V32" stroke="#78350F" stroke-width="1.2"/>
+                            <defs>
+                              <linearGradient id="chip-grad" x1="0" y1="0" x2="44" y2="32" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FDE68A"/>
+                                <stop offset="0.5" stop-color="#F59E0B"/>
+                                <stop offset="1" stop-color="#D97706"/>
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                        <span id="preview-card-brand-logo" class="card-brand-logo">MS CARD</span>
                       </div>
                       <div class="card-number-display" id="preview-card-number">•••• •••• •••• ••••</div>
                       <div class="card-details-row">
                         <div>
-                          <div style="font-size:0.65rem;color:#CBD5E1;letter-spacing:0.5px;">CARDHOLDER</div>
+                          <div class="card-label">CARDHOLDER</div>
                           <div class="card-holder-name" id="preview-card-name">CARDHOLDER NAME</div>
                         </div>
-                        <div>
-                          <div style="font-size:0.65rem;color:#CBD5E1;letter-spacing:0.5px;">EXPIRES</div>
+                        <div style="text-align:right;">
+                          <div class="card-label">EXPIRES</div>
                           <div class="card-expiry-display" id="preview-card-expiry">MM/YY</div>
                         </div>
                       </div>
@@ -248,10 +268,10 @@
                     <div class="card-face card-back">
                       <div class="card-magnetic-strip"></div>
                       <div>
-                        <div style="font-size:0.65rem;color:#CBD5E1;margin-left:1.5rem;margin-bottom:0.25rem;">CVV / CVC</div>
+                        <div class="card-label" style="margin-left:1.5rem;margin-bottom:0.25rem;">CVV / CVC</div>
                         <div class="card-cvv-strip" id="preview-card-cvv">•••</div>
                       </div>
-                      <div style="padding:0 1.5rem;font-size:0.65rem;color:#94A3B8;text-align:right;">
+                      <div class="card-back-footer">
                         Encrypted Security Standard
                       </div>
                     </div>
@@ -259,13 +279,13 @@
                 </div>
 
                 <!-- Card Form Inputs -->
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;">
-                  <div class="form-group" style="grid-column:span 2;">
+                <div class="checkout-form-grid checkout-card-form-grid">
+                  <div class="form-group checkout-span-2">
                     <label class="form-label" for="payField1">Card Number *</label>
                     <input type="text" id="payField1" name="payField1" autocomplete="off" class="form-control" placeholder="4532 8492 1039 8842" maxlength="19" required>
                   </div>
 
-                  <div class="form-group" style="grid-column:span 2;">
+                  <div class="form-group checkout-span-2">
                     <label class="form-label" for="payField2">Name on Card *</label>
                     <input type="text" id="payField2" name="payField2" autocomplete="off" class="form-control" placeholder="e.g. ELEANOR VANCE" required>
                   </div>
@@ -293,12 +313,12 @@
                 </p>
               </div>
 
-              <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div class="checkout-btn-row checkout-btn-row--between">
                 <button type="button" class="btn btn-outline" id="btn-back-to-step-2">
                   <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
                   <span>Back to Delivery</span>
                 </button>
-                <button type="button" class="btn btn-primary btn-lg" id="btn-complete-payment" style="min-width:200px;">
+                <button type="button" class="btn btn-primary btn-lg checkout-pay-btn" id="btn-complete-payment">
                   <i data-lucide="lock" style="width:18px;height:18px;"></i>
                   <span>Pay Now</span>
                 </button>
@@ -310,7 +330,7 @@
         </div>
 
         <!-- Right: Sticky Order Summary -->
-        <aside style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-sm);position:sticky;top:90px;">
+        <aside class="checkout-summary-aside">
           <h3 style="font-size:1.15rem;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border-color);">Your Order</h3>
 
           <!-- Items list -->
@@ -320,25 +340,25 @@
 
           <!-- Price breakdown -->
           <div style="display:flex;flex-direction:column;gap:0.65rem;font-size:0.875rem;margin-bottom:1.25rem;">
-            <div style="display:flex;justify-content:space-between;color:var(--text-muted);">
+            <div class="checkout-summary-row">
               <span>Subtotal</span>
               <span id="checkout-summary-subtotal" style="color:var(--text-main);font-weight:600;">$0.00</span>
             </div>
-            <div style="display:flex;justify-content:space-between;color:var(--text-muted);">
+            <div class="checkout-summary-row">
               <span>Shipping Fee</span>
               <span id="checkout-summary-shipping" style="color:var(--text-main);font-weight:600;">FREE</span>
             </div>
-            <div style="display:flex;justify-content:space-between;color:var(--text-muted);">
+            <div class="checkout-summary-row">
               <span>Estimated Tax (8%)</span>
               <span id="checkout-summary-tax" style="color:var(--text-main);font-weight:600;">$0.00</span>
             </div>
-            <div id="checkout-summary-discount-row" style="display:none;justify-content:space-between;color:var(--success);font-weight:600;">
+            <div id="checkout-summary-discount-row" class="checkout-summary-row" style="display:none;color:var(--success);font-weight:600;">
               <span>Promo Discount</span>
               <span id="checkout-summary-discount">-$0.00</span>
             </div>
           </div>
 
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:1.25rem;font-weight:800;color:var(--text-main);padding-top:1rem;border-top:1px solid var(--border-color);">
+          <div class="checkout-summary-total">
             <span>Total to Pay</span>
             <span id="checkout-summary-total">$0.00</span>
           </div>
@@ -370,22 +390,22 @@
 
       <!-- Order Receipt Card -->
       <div style="background:var(--slate-50);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.25rem;margin-bottom:2rem;text-align:left;display:flex;flex-direction:column;gap:0.75rem;font-size:0.875rem;">
-        <div style="display:flex;justify-content:space-between;">
+        <div class="checkout-summary-row">
           <span style="color:var(--text-muted);">Order Number:</span>
           <strong id="success-order-id" style="color:var(--primary);font-family:monospace;font-size:1rem;">MS-849201</strong>
         </div>
-        <div style="display:flex;justify-content:space-between;">
+        <div class="checkout-summary-row">
           <span style="color:var(--text-muted);">Amount Paid:</span>
           <strong id="success-amount-paid" style="color:var(--text-main);">$0.00</strong>
         </div>
-        <div style="display:flex;justify-content:space-between;">
+        <div class="checkout-summary-row">
           <span style="color:var(--text-muted);">Estimated Delivery:</span>
           <strong id="success-delivery-date" style="color:var(--text-main);">Thu, Oct 25</strong>
         </div>
       </div>
 
       <!-- Action Buttons -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div class="checkout-modal-actions">
         <button id="success-btn-track" class="btn btn-outline btn-lg">
           <i data-lucide="package" style="width:18px;height:18px;"></i>
           <span>Track Order</span>

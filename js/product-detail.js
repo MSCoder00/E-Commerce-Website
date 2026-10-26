@@ -23,32 +23,54 @@ class ProductDetailPage {
     this.currentImages = [];
     this.activeImageIndex = 0;
     this.quantity = 1;
-    this.productId = new URLSearchParams(window.location.search).get("id");
+    this.productId = this.extractProductId();
 
     this.init();
     this.setupHistoryListener();
   }
 
+  extractProductId() {
+    // 1. Query parameter ?id=
+    const params = new URLSearchParams(window.location.search);
+    const queryId = params.get("id");
+    if (queryId && queryId.trim()) return queryId.trim();
+
+    // 2. Hash fallback #id
+    if (window.location.hash) {
+      const hashId = window.location.hash.replace(/^#/, "").trim();
+      if (hashId && !hashId.includes("/")) return hashId;
+    }
+
+    // 3. Last path segment fallback (e.g. /product/prod-elec-01)
+    const segments = window.location.pathname.split("/").filter(Boolean);
+    const lastSeg = segments[segments.length - 1];
+    if (lastSeg && lastSeg !== "product" && lastSeg !== "product.html") {
+      return decodeURIComponent(lastSeg).replace(/\.html$/, "").trim();
+    }
+
+    return "";
+  }
+
   setupHistoryListener() {
-    window.addEventListener("popstate", () => {
-      const rawId = new URLSearchParams(window.location.search).get("id");
-      const newId = rawId ? rawId.trim() : "";
+    const handleUrlChange = () => {
+      const newId = this.extractProductId();
       if (newId !== this.productId) {
         this.productId = newId;
         this.init();
       } else if (this.product) {
         this.syncSizeFromUrl();
       }
-    });
+    };
+    window.addEventListener("popstate", handleUrlChange);
+    window.addEventListener("hashchange", handleUrlChange);
   }
 
   async init() {
-    const rawId = new URLSearchParams(window.location.search).get("id");
-    this.productId = rawId ? rawId.trim() : "";
+    this.productId = this.extractProductId();
 
     if (!this.productId) {
       console.error(
-        "[MS STORE] Product ID missing from URL query string (?id=...). Available catalog IDs:",
+        "[MS STORE] Product ID missing from URL (?id=...). Available catalog IDs:",
         PRODUCTS_CATALOG.map(p => p.id)
       );
       this.renderNotFound();
@@ -61,6 +83,7 @@ class ProductDetailPage {
 
     await this.loadProduct();
     if (this.product) {
+      this.saveRecentlyViewed(this.product.id);
       this.prepareVariants();
       this.renderProductInfo();
       this.initGalleryAndZoom();
@@ -69,6 +92,7 @@ class ProductDetailPage {
       this.initTabs();
       this.loadReviews();
       this.loadRelatedProducts();
+      this.loadRecentlyViewed();
     }
   }
 
@@ -187,11 +211,45 @@ class ProductDetailPage {
 
     // Stock Status
     const stockEl = document.getElementById("pdp-stock-status");
-    if (stockEl) {
-      if (this.product.stock <= 5) {
-        stockEl.innerHTML = `<i data-lucide="alert-triangle" style="width:16px;height:16px;color:var(--warning);"></i> <span style="color:#B45309;font-weight:600;">Only ${this.product.stock} left in stock - order soon!</span>`;
-      } else {
-        stockEl.innerHTML = `<i data-lucide="check-circle" style="width:16px;height:16px;color:var(--success);"></i> <span style="color:var(--success);font-weight:600;">In Stock (${this.product.stock} units available)</span>`;
+    const addBtn = document.getElementById("pdp-add-cart-btn");
+    const buyBtn = document.getElementById("pdp-buy-now-btn");
+    const stock = Number(this.product.stock) || 0;
+
+    if (stock <= 0) {
+      if (stockEl) {
+        stockEl.innerHTML = `<i data-lucide="x-circle" style="width:16px;height:16px;color:var(--error);"></i> <span style="color:var(--error);font-weight:600;">Out of Stock</span>`;
+      }
+      if (addBtn) {
+        addBtn.disabled = true;
+        addBtn.classList.add("disabled");
+      }
+      if (buyBtn) {
+        buyBtn.disabled = true;
+        buyBtn.classList.add("disabled");
+      }
+    } else if (stock <= 5) {
+      if (stockEl) {
+        stockEl.innerHTML = `<i data-lucide="alert-triangle" style="width:16px;height:16px;color:var(--warning);"></i> <span style="color:#B45309;font-weight:600;">Only ${stock} left in stock - order soon!</span>`;
+      }
+      if (addBtn) {
+        addBtn.disabled = false;
+        addBtn.classList.remove("disabled");
+      }
+      if (buyBtn) {
+        buyBtn.disabled = false;
+        buyBtn.classList.remove("disabled");
+      }
+    } else {
+      if (stockEl) {
+        stockEl.innerHTML = `<i data-lucide="check-circle" style="width:16px;height:16px;color:var(--success);"></i> <span style="color:var(--success);font-weight:600;">In Stock (${stock} units available)</span>`;
+      }
+      if (addBtn) {
+        addBtn.disabled = false;
+        addBtn.classList.remove("disabled");
+      }
+      if (buyBtn) {
+        buyBtn.disabled = false;
+        buyBtn.classList.remove("disabled");
       }
     }
 
@@ -409,21 +467,40 @@ class ProductDetailPage {
 
     // Quantity Selector
     const qtyValEl = document.getElementById("pdp-qty-val");
+    const stockLimit = Number(this.product.stock) || 99;
+
+    const setQty = (val) => {
+      let num = parseInt(val, 10);
+      if (isNaN(num) || num < 1) num = 1;
+      if (stockLimit > 0 && num > stockLimit) {
+        num = stockLimit;
+        showToast("Stock Limit", `Only ${stockLimit} units are currently available.`, "info");
+      }
+      this.quantity = num;
+      if (qtyValEl) {
+        if ("value" in qtyValEl) qtyValEl.value = num;
+        qtyValEl.textContent = num;
+      }
+    };
+
+    setQty(1);
+
     document.getElementById("pdp-qty-minus")?.addEventListener("click", () => {
       if (this.quantity > 1) {
-        this.quantity--;
-        if (qtyValEl) qtyValEl.textContent = this.quantity;
+        setQty(this.quantity - 1);
       }
     });
 
     document.getElementById("pdp-qty-plus")?.addEventListener("click", () => {
-      if (this.quantity < this.product.stock) {
-        this.quantity++;
-        if (qtyValEl) qtyValEl.textContent = this.quantity;
+      if (this.quantity < stockLimit) {
+        setQty(this.quantity + 1);
       } else {
-        showToast("Stock Limit", `Only ${this.product.stock} units are currently available.`, "info");
+        showToast("Stock Limit", `Only ${stockLimit} units are currently available.`, "info");
       }
     });
+
+    qtyValEl?.addEventListener("input", (e) => setQty(e.target.value));
+    qtyValEl?.addEventListener("change", (e) => setQty(e.target.value));
   }
 
   selectSize(sizeStr, updateUrl = true) {
@@ -473,11 +550,27 @@ class ProductDetailPage {
 
     // Add to Cart
     document.getElementById("pdp-add-cart-btn")?.addEventListener("click", () => {
+      if ((this.product.stock || 0) <= 0) {
+        showToast("Out of Stock", "This product is currently out of stock.", "error");
+        return;
+      }
+      if (this.sizesList.length > 0 && !this.selectedSize) {
+        showToast("Select Size", "Please select a size before adding to bag.", "error");
+        return;
+      }
       cart.addItem(this.product, this.quantity, this.selectedSize, mainImg);
     });
 
     // Buy Now
     document.getElementById("pdp-buy-now-btn")?.addEventListener("click", () => {
+      if ((this.product.stock || 0) <= 0) {
+        showToast("Out of Stock", "This product is currently out of stock.", "error");
+        return;
+      }
+      if (this.sizesList.length > 0 && !this.selectedSize) {
+        showToast("Select Size", "Please select a size before proceeding to checkout.", "error");
+        return;
+      }
       requireAuthForAction(() => {
         cart.addItem(this.product, this.quantity, this.selectedSize, null);
         window.location.href = "checkout.html";
@@ -605,6 +698,54 @@ class ProductDetailPage {
     } else {
       const section = grid.closest("section");
       if (section) section.style.display = "none";
+    }
+  }
+
+  // ==========================================================================
+  // Recently Viewed Products
+  // ==========================================================================
+  saveRecentlyViewed(id) {
+    if (!id) return;
+    try {
+      const KEY = "ms_store_recently_viewed";
+      let list = JSON.parse(localStorage.getItem(KEY) || "[]");
+      if (!Array.isArray(list)) list = [];
+      list = [id, ...list.filter(x => x !== id)].slice(0, 8);
+      localStorage.setItem(KEY, JSON.stringify(list));
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  async loadRecentlyViewed() {
+    const grid = document.getElementById("pdp-recently-viewed-grid");
+    const section = document.getElementById("pdp-recently-viewed-section");
+    if (!grid || !section) return;
+
+    try {
+      const KEY = "ms_store_recently_viewed";
+      const list = JSON.parse(localStorage.getItem(KEY) || "[]");
+      const otherIds = list.filter(id => id !== this.product.id).slice(0, 4);
+      if (otherIds.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      const all = await getProducts();
+      const recentProducts = otherIds.map(id => all.find(p => p.id === id)).filter(Boolean);
+
+      if (recentProducts.length > 0) {
+        grid.innerHTML = recentProducts.map(p => createProductCardHTML(p)).join("");
+        attachProductCardListeners(grid);
+        section.style.display = "block";
+        if (window.lucide && typeof window.lucide.createIcons === "function") {
+          window.lucide.createIcons({ root: grid });
+        }
+      } else {
+        section.style.display = "none";
+      }
+    } catch (e) {
+      section.style.display = "none";
     }
   }
 }

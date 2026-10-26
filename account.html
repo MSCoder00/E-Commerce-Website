@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -94,43 +94,42 @@
       <nav style="display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-muted);margin-bottom:2rem;">
         <a href="index.html" style="color:var(--text-main);font-weight:500;">Home</a>
         <span>/</span>
-        <span style="color:var(--primary);font-weight:600;">My Account</span>
       </nav>
 
       <!-- Account Layout: Left Sidebar + Right Panes -->
-      <div style="display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:start;">
+      <div class="account-layout">
 
         <!-- Left: Account Navigation Sidebar -->
-        <aside style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow-xs);">
+        <aside class="account-sidebar">
           <!-- User Summary Card -->
-          <div style="display:flex;align-items:center;gap:1rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border-color);margin-bottom:1.25rem;">
+          <div class="account-user-card">
             <img id="account-display-avatar" src="assets/images/placeholder.svg" alt="Avatar" width="52" height="52" style="width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--slate-100);" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';">
-            <div style="min-width:0;">
-              <h3 id="account-display-name" style="font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></h3>
-              <p id="account-display-email" style="font-size:0.775rem;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></p>
+            <div class="account-user-info">
+              <h3 id="account-display-name" class="account-user-name"></h3>
+              <p id="account-display-email" class="account-user-email"></p>
             </div>
           </div>
 
           <!-- Nav Links -->
-          <div style="display:flex;flex-direction:column;gap:0.35rem;">
-            <button class="account-nav-item active nav-link" data-tab="profile" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+          <div class="account-nav">
+            <button class="account-nav-item active nav-link account-nav-btn" data-tab="profile">
               <i data-lucide="user" style="width:18px;height:18px;"></i>
               <span>Profile Settings</span>
             </button>
-            <button class="account-nav-item nav-link" data-tab="orders" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+            <button class="account-nav-item nav-link account-nav-btn" data-tab="orders">
               <i data-lucide="package" style="width:18px;height:18px;"></i>
               <span>Order History</span>
             </button>
-            <button class="account-nav-item nav-link" data-tab="addresses" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+            <button class="account-nav-item nav-link account-nav-btn" data-tab="addresses">
               <i data-lucide="map-pin" style="width:18px;height:18px;"></i>
               <span>Saved Addresses</span>
             </button>
-            <a href="wishlist.html" class="nav-link" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+            <a href="wishlist.html" class="nav-link account-nav-btn">
               <i data-lucide="heart" style="width:18px;height:18px;"></i>
               <span>My Wishlist</span>
             </a>
-            <div style="height:1px;background:var(--border-color);margin:0.5rem 0;"></div>
-            <button id="account-logout-btn" class="account-nav-item nav-link text-danger" data-tab="logout" style="width:100%;text-align:left;padding:0.65rem 0.75rem;border-radius:var(--radius-sm);justify-content:flex-start;gap:0.75rem;">
+            <div class="account-nav-divider"></div>
+            <button id="account-logout-btn" class="account-nav-item nav-link text-danger account-nav-btn" data-tab="logout">
               <i data-lucide="log-out" style="width:18px;height:18px;"></i>
               <span>Sign Out</span>
             </button>
@@ -138,19 +137,19 @@
         </aside>
 
         <!-- Right: Tab Content Panes -->
-        <div>
+        <div class="account-content">
 
           <!-- ==========================================================================
                PANE 1: Profile Settings
                ========================================================================== -->
           <div class="account-tab-pane" id="pane-profile">
-            <h2 style="font-size:1.6rem;margin-bottom:0.5rem;">Profile Settings</h2>
-            <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">Update your customer details and contact preferences.</p>
+            <h2 class="account-heading">Profile Settings</h2>
+            <p class="account-subheading">Update your customer details and contact preferences.</p>
 
-            <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;">
+            <div class="account-card">
               <form id="account-profile-form">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.5rem;">
-                  <div class="form-group" style="grid-column:span 2;">
+                <div class="account-form-grid">
+                  <div class="form-group checkout-span-2">
                     <label class="form-label" for="profile-name-input">Display Name</label>
                     <input type="text" id="profile-name-input" class="form-control" required>
                   </div>
@@ -166,7 +165,7 @@
                   </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-primary account-submit-btn">Save Changes</button>
               </form>
             </div>
           </div>
@@ -175,8 +174,8 @@
                PANE 2: Order History
                ========================================================================== -->
           <div class="account-tab-pane" id="pane-orders" style="display:none;">
-            <h2 style="font-size:1.6rem;margin-bottom:0.5rem;">Order History</h2>
-            <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">Track shipments, view invoice summaries, and inspect past purchases.</p>
+            <h2 class="account-heading">Order History</h2>
+            <p class="account-subheading">Track shipments, view invoice summaries, and inspect past purchases.</p>
 
             <div id="orders-history-list">
               <!-- Rendered dynamically by account-page.js -->
@@ -187,18 +186,18 @@
                PANE 3: Saved Addresses
                ========================================================================== -->
           <div class="account-tab-pane" id="pane-addresses" style="display:none;">
-            <h2 style="font-size:1.6rem;margin-bottom:0.5rem;">Saved Delivery Addresses</h2>
-            <p style="color:var(--text-muted);font-size:0.875rem;margin-bottom:1.5rem;">Save multiple delivery locations for 1-click checkout.</p>
+            <h2 class="account-heading">Saved Delivery Addresses</h2>
+            <p class="account-subheading">Save multiple delivery locations for 1-click checkout.</p>
 
             <div id="addresses-list-container" style="margin-bottom:2.5rem;">
               <!-- Rendered dynamically -->
             </div>
 
             <!-- Add Address Form -->
-            <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);padding:2rem;">
+            <div class="account-card">
               <h3 style="font-size:1.15rem;margin-bottom:1rem;">Add New Address</h3>
               <form id="new-address-form">
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
+                <div class="account-address-form-grid">
                   <div class="form-group">
                     <label class="form-label" for="addr-label">Label (e.g. Home, Office)</label>
                     <input type="text" id="addr-label" class="form-control" placeholder="Home" required>
@@ -207,7 +206,7 @@
                     <label class="form-label" for="addr-phone">Phone</label>
                     <input type="tel" id="addr-phone" class="form-control" placeholder="+1 (555) 000-0000" required>
                   </div>
-                  <div class="form-group" style="grid-column:span 2;">
+                  <div class="form-group checkout-span-2">
                     <label class="form-label" for="addr-street">Street Address</label>
                     <input type="text" id="addr-street" class="form-control" placeholder="123 Market St, Suite 400" required>
                   </div>
@@ -219,7 +218,7 @@
                     <label class="form-label" for="addr-zip">Zip / Postal Code</label>
                     <input type="text" id="addr-zip" class="form-control" placeholder="94107" required>
                   </div>
-                  <div class="form-group" style="grid-column:span 2;">
+                  <div class="form-group checkout-span-2">
                     <label class="form-label" for="addr-country">Country</label>
                     <select id="addr-country" class="form-control">
                       <option value="United States">United States</option>
@@ -229,7 +228,7 @@
                     </select>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Save New Address</button>
+                <button type="submit" class="btn btn-primary account-submit-btn">Save New Address</button>
               </form>
             </div>
           </div>

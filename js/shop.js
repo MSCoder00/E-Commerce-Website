@@ -9,6 +9,10 @@ import { createProductCardHTML, attachProductCardListeners } from "./ui.js";
 
 class ShopPage {
   constructor() {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
     this.allProducts = [];
     this.filteredProducts = [];
     this.displayedCount = 12;
@@ -31,7 +35,139 @@ class ShopPage {
   async init() {
     this.parseURLParams();
     this.setupEventListeners();
+    this.setupPageLifecycleListeners();
     await this.loadCatalog();
+  }
+
+  getStateStorageKey() {
+    return `msstore:shopState:${window.location.pathname}${window.location.search}`;
+  }
+
+  saveState(clickedProductId = null) {
+    try {
+      const key = this.getStateStorageKey();
+      const state = {
+        displayedCount: this.displayedCount,
+        selectedCategory: this.selectedCategory,
+        selectedSubCategory: this.selectedSubCategory,
+        maxPrice: this.maxPrice,
+        minRating: this.minRating,
+        selectedBrands: Array.from(this.selectedBrands),
+        onlyInStock: this.onlyInStock,
+        onlyDeals: Boolean(this.onlyDeals),
+        currentSort: this.currentSort,
+        isListView: this.isListView,
+        searchQuery: this.searchQuery,
+        scrollY: window.scrollY || document.documentElement.scrollTop || 0,
+        lastClickedProductId: clickedProductId || null,
+        timestamp: Date.now()
+      };
+      sessionStorage.setItem(key, JSON.stringify(state));
+    } catch (e) {
+      console.warn("[MS STORE] Unable to save shop state:", e);
+    }
+  }
+
+  getSavedState() {
+    try {
+      const key = this.getStateStorageKey();
+      const data = sessionStorage.getItem(key);
+      if (!data) return null;
+      return JSON.parse(data);
+    } catch (e) {
+      console.warn("[MS STORE] Unable to read shop state:", e);
+      return null;
+    }
+  }
+
+  clearSavedState() {
+    try {
+      const key = this.getStateStorageKey();
+      sessionStorage.removeItem(key);
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  isBackForwardNavigation(pageshowEvent = null) {
+    if (pageshowEvent && pageshowEvent.persisted) return true;
+    try {
+      const navEntries = performance.getEntriesByType("navigation");
+      if (navEntries && navEntries.length > 0) {
+        return navEntries[0].type === "back_forward";
+      }
+      if (window.performance && window.performance.navigation) {
+        return window.performance.navigation.type === 2; // TYPE_BACK_FORWARD
+      }
+    } catch (e) {
+      // ignore
+    }
+    return false;
+  }
+
+  setupPageLifecycleListeners() {
+    // 1. Save on pagehide
+    window.addEventListener("pagehide", () => {
+      this.saveState();
+    });
+
+    // 2. Save on beforeunload
+    window.addEventListener("beforeunload", () => {
+      this.saveState();
+    });
+
+    // 3. Listen on pageshow for bfcache restoration
+    window.addEventListener("pageshow", (e) => {
+      if (e.persisted) {
+        const saved = this.getSavedState();
+        if (saved) {
+          this.restoreScrollPosition(saved);
+        }
+      }
+    });
+
+    // 4. Save state when user clicks on a product card or link inside it
+    const grid = document.getElementById("shop-products-grid");
+    if (grid) {
+      grid.addEventListener("click", (e) => {
+        if (e.target.closest("button.btn-quick-add") || e.target.closest("button.btn-wishlist-toggle") || e.target.closest("button.btn-quick-view")) {
+          return;
+        }
+        const card = e.target.closest(".product-card");
+        if (card) {
+          const id = card.getAttribute("data-id") || card.getAttribute("data-product-id");
+          this.saveState(id);
+        }
+      }, true);
+    }
+  }
+
+  restoreScrollPosition(saved) {
+    const targetY = typeof saved.scrollY === "number" ? saved.scrollY : 0;
+    const targetId = saved.lastClickedProductId;
+
+    const performScroll = () => {
+      window.scrollTo({ top: targetY, behavior: "instant" });
+      if (targetId) {
+        const card = document.querySelector(`.product-card[data-id="${targetId}"], .product-card[data-product-id="${targetId}"]`);
+        if (card) {
+          const rect = card.getBoundingClientRect();
+          if (rect.bottom < 0 || rect.top > window.innerHeight) {
+            card.scrollIntoView({ block: "center", behavior: "instant" });
+          }
+        }
+      }
+    };
+
+    requestAnimationFrame(() => {
+      performScroll();
+      requestAnimationFrame(() => {
+        performScroll();
+        setTimeout(performScroll, 50);
+        setTimeout(performScroll, 150);
+        setTimeout(performScroll, 300);
+      });
+    });
   }
 
   parseURLParams() {
@@ -60,16 +196,61 @@ class ShopPage {
     }
 
     this.allProducts = await getProducts();
+
+    // Check for back/forward navigation restoration
+    const isBackNav = this.isBackForwardNavigation();
+    const saved = isBackNav ? this.getSavedState() : null;
+
+    if (saved) {
+      if (typeof saved.displayedCount === "number") {
+        this.displayedCount = saved.displayedCount;
+      }
+      if (saved.selectedCategory) {
+        this.selectedCategory = saved.selectedCategory;
+      }
+      if (saved.selectedSubCategory) {
+        this.selectedSubCategory = saved.selectedSubCategory;
+      }
+      if (typeof saved.maxPrice === "number") {
+        this.maxPrice = saved.maxPrice;
+      }
+      if (typeof saved.minRating === "number") {
+        this.minRating = saved.minRating;
+      }
+      if (Array.isArray(saved.selectedBrands)) {
+        this.selectedBrands = new Set(saved.selectedBrands);
+      }
+      if (typeof saved.onlyInStock === "boolean") {
+        this.onlyInStock = saved.onlyInStock;
+      }
+      if (typeof saved.onlyDeals === "boolean") {
+        this.onlyDeals = saved.onlyDeals;
+      }
+      if (saved.currentSort) {
+        this.currentSort = saved.currentSort;
+      }
+      if (typeof saved.isListView === "boolean") {
+        this.isListView = saved.isListView;
+      }
+      if (typeof saved.searchQuery === "string") {
+        this.searchQuery = saved.searchQuery;
+      }
+    }
+
     this.populateBrandFilters();
     this.syncFilterControlsUI();
     this.applyFiltersAndSort();
+
+    if (saved) {
+      this.restoreScrollPosition(saved);
+    }
   }
 
   renderSkeletons(count = 8) {
     let html = "";
     for (let i = 0; i < count; i++) {
       html += `
-        <div class="product-card">
+        <div class="product-card skeleton-card">
           <div class="skeleton" style="aspect-ratio:1/1;width:100%;"></div>
           <div class="product-content" style="gap:0.75rem;">
             <div class="skeleton" style="height:14px;width:35%;"></div>
@@ -97,6 +278,7 @@ class ShopPage {
 
     brandListEl.querySelectorAll(".brand-filter-cb").forEach(cb => {
       cb.addEventListener("change", () => {
+        this.clearSavedState();
         if (cb.checked) {
           this.selectedBrands.add(cb.value);
         } else {
@@ -121,6 +303,7 @@ class ShopPage {
     const sortSelect = document.getElementById("shop-sort-select");
     if (sortSelect) {
       sortSelect.value = this.currentSort;
+      this.syncMobileSort(this.currentSort);
     }
 
     // Category Radio/Buttons
@@ -152,6 +335,7 @@ class ShopPage {
     const priceValDisplay = document.getElementById("price-val-display");
     if (priceSlider && priceValDisplay) {
       priceSlider.addEventListener("input", (e) => {
+        this.clearSavedState();
         this.maxPrice = Number(e.target.value);
         priceValDisplay.textContent = `$${this.maxPrice}`;
         this.displayedCount = this.pageSize;
@@ -162,6 +346,7 @@ class ShopPage {
     // Category Radios
     document.querySelectorAll(".category-filter-radio").forEach(radio => {
       radio.addEventListener("change", (e) => {
+        this.clearSavedState();
         this.selectedCategory = e.target.value;
         this.selectedSubCategory = "all";
         this.displayedCount = this.pageSize;
@@ -172,6 +357,7 @@ class ShopPage {
     // Rating Radios
     document.querySelectorAll(".rating-filter-radio").forEach(radio => {
       radio.addEventListener("change", (e) => {
+        this.clearSavedState();
         this.minRating = Number(e.target.value);
         this.displayedCount = this.pageSize;
         this.applyFiltersAndSort();
@@ -180,6 +366,7 @@ class ShopPage {
 
     // In Stock
     document.getElementById("filter-in-stock")?.addEventListener("change", (e) => {
+      this.clearSavedState();
       this.onlyInStock = e.target.checked;
       this.displayedCount = this.pageSize;
       this.applyFiltersAndSort();
@@ -187,7 +374,9 @@ class ShopPage {
 
     // Sort Dropdown
     document.getElementById("shop-sort-select")?.addEventListener("change", (e) => {
+      this.clearSavedState();
       this.currentSort = e.target.value;
+      this.syncMobileSort(this.currentSort);
       this.applyFiltersAndSort();
     });
 
@@ -255,9 +444,114 @@ class ShopPage {
       closeFilters();
       document.getElementById("shop-toolbar")?.scrollIntoView({ behavior: "smooth" });
     });
+
+    this.setupMobileSort();
+  }
+
+  syncMobileSort(sortVal) {
+    const mobileCustom = document.getElementById("mobile-sort-custom");
+    if (!mobileCustom) return;
+    const labelEl = document.getElementById("mobile-sort-label");
+    const options = mobileCustom.querySelectorAll(".mobile-sort-option");
+    options.forEach(opt => {
+      const match = (opt.getAttribute("data-value") === sortVal);
+      opt.classList.toggle("is-selected", match);
+      opt.setAttribute("aria-selected", match ? "true" : "false");
+      opt.setAttribute("tabindex", match ? "0" : "-1");
+      if (match && labelEl) {
+        const textSpan = opt.querySelector("span");
+        if (textSpan) labelEl.textContent = textSpan.textContent.trim();
+      }
+    });
+  }
+
+  setupMobileSort() {
+    const mobileCustom = document.getElementById("mobile-sort-custom");
+    const btn = document.getElementById("mobile-sort-btn");
+    const menu = document.getElementById("mobile-sort-menu");
+    const backdrop = document.getElementById("mobile-sort-backdrop");
+    const sortSelect = document.getElementById("shop-sort-select");
+    if (!mobileCustom || !btn || !menu || !sortSelect) return;
+
+    this.syncMobileSort(this.currentSort || sortSelect.value);
+
+    const openMenu = () => {
+      mobileCustom.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+      const selectedOpt = menu.querySelector(".mobile-sort-option.is-selected") || menu.querySelector(".mobile-sort-option");
+      selectedOpt?.focus();
+    };
+
+    const closeMenu = () => {
+      mobileCustom.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    };
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (mobileCustom.classList.contains("is-open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    backdrop?.addEventListener("click", () => {
+      closeMenu();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!mobileCustom.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    const options = Array.from(menu.querySelectorAll(".mobile-sort-option"));
+    options.forEach((opt, idx) => {
+      opt.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const val = opt.getAttribute("data-value");
+        if (val) {
+          sortSelect.value = val;
+          sortSelect.dispatchEvent(new Event("change", { bubbles: true }));
+          this.syncMobileSort(val);
+        }
+        closeMenu();
+        btn.focus();
+      });
+
+      opt.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          opt.click();
+        } else if (e.key === "ArrowDown") {
+          e.preventDefault();
+          const next = options[(idx + 1) % options.length];
+          next?.focus();
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          const prev = options[(idx - 1 + options.length) % options.length];
+          prev?.focus();
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          closeMenu();
+          btn.focus();
+        }
+      });
+    });
+
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openMenu();
+      } else if (e.key === "Escape") {
+        closeMenu();
+      }
+    });
   }
 
   resetAllFilters() {
+    this.clearSavedState();
     this.selectedCategory = "all";
     this.selectedSubCategory = "all";
     this.maxPrice = 200;

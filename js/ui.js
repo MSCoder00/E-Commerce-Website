@@ -62,12 +62,14 @@ window.showToast = showToast; // global handle
 // 2. Product Card HTML Generator
 // ==========================================================================
 export function createProductCardHTML(product, isListView = false) {
-  const isWishlisted = wishlist.isInWishlist(product.id);
+  const id = (product.id || product.productId || product.docId || (product.doc && product.doc.id) || "").toString().trim();
+  const isWishlisted = wishlist.isInWishlist(id);
   const primaryImg = product.images && product.images[0] ? product.images[0] : "";
+  const productUrl = getProductUrl(id || product);
 
   return `
-    <div class="product-card ${isListView ? "is-list-view" : ""}" data-product-id="${product.id}">
-      <a href="${getProductUrl(product)}" class="product-img-wrap">
+    <div class="product-card ${isListView ? "is-list-view" : ""}" data-id="${id}" data-product-id="${id}">
+      <a href="${productUrl}" class="product-img-wrap">
         <img src="${primaryImg || '/assets/images/placeholder.svg'}" alt="${product.name}" class="product-img" loading="lazy" width="300" height="300" style="object-fit:cover;" onerror="this.onerror=null;this.src='/assets/images/placeholder.svg';">
       </a>
 
@@ -77,17 +79,17 @@ export function createProductCardHTML(product, isListView = false) {
       </div>
 
       <div class="product-actions">
-        <button class="action-icon-btn btn-wishlist-toggle ${isWishlisted ? "is-active" : ""}" data-id="${product.id}" aria-label="Add to wishlist" title="Add to wishlist">
+        <button class="action-icon-btn btn-wishlist-toggle ${isWishlisted ? "is-active" : ""}" data-id="${id}" aria-label="Add to wishlist" title="Add to wishlist">
           <i data-lucide="heart" style="width:16px;height:16px;"></i>
         </button>
-        <button class="action-icon-btn btn-quick-view" data-id="${product.id}" aria-label="Quick view" title="Quick view">
+        <button class="action-icon-btn btn-quick-view" data-id="${id}" aria-label="Quick view" title="Quick view">
           <i data-lucide="eye" style="width:16px;height:16px;"></i>
         </button>
       </div>
 
       <div class="product-content">
         <span class="product-category">${product.category}</span>
-        <a href="${getProductUrl(product)}">
+        <a href="${productUrl}">
           <h3 class="product-title">${product.name}</h3>
         </a>
 
@@ -105,7 +107,7 @@ export function createProductCardHTML(product, isListView = false) {
             <span class="current-price">$${product.price.toFixed(2)}</span>
             ${product.oldPrice ? `<span class="old-price">$${product.oldPrice.toFixed(2)}</span>` : ""}
           </div>
-          <button class="btn-add-cart btn-quick-add" data-id="${product.id}" aria-label="Add to cart">
+          <button class="btn-add-cart btn-quick-add" data-id="${id}" aria-label="Add to cart">
             <i data-lucide="shopping-bag" style="width:15px;height:15px;"></i>
             <span>Add</span>
           </button>
@@ -157,6 +159,18 @@ export function attachProductCardListeners(container = document) {
       const product = PRODUCTS_CATALOG.find(p => p.id === id);
       if (product) {
         openQuickViewModal(product);
+      }
+    });
+  });
+
+  container.querySelectorAll(".product-card:not(.skeleton-card)").forEach(card => {
+    if (card._cardClickBound) return;
+    card._cardClickBound = true;
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("button") || e.target.closest("a")) return;
+      const id = (card.getAttribute("data-id") || card.getAttribute("data-product-id") || "").trim();
+      if (id) {
+        window.location.href = getProductUrl(id);
       }
     });
   });

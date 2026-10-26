@@ -269,7 +269,7 @@
               </button>
 
               <!-- Sort Dropdown -->
-              <div class="shop-sort-wrap">
+              <div class="shop-sort-wrap" id="shop-sort-wrap">
                 <label for="shop-sort-select" class="shop-sort-label">Sort By:</label>
                 <select id="shop-sort-select" class="form-control shop-sort-select">
                   <option value="popular">Popular (Featured)</option>
@@ -278,6 +278,37 @@
                   <option value="price-desc">Price: High to Low</option>
                   <option value="rating">Top Customer Rated</option>
                 </select>
+
+                <!-- Custom Mobile Sort Dropdown (Visible only on screens <= 640px) -->
+                <div class="mobile-sort-custom" id="mobile-sort-custom">
+                  <button type="button" class="mobile-sort-btn" id="mobile-sort-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Sort products by">
+                    <span class="mobile-sort-label" id="mobile-sort-label">Popular (Featured)</span>
+                    <i data-lucide="chevron-down" class="mobile-sort-chevron" style="width:16px;height:16px;flex-shrink:0;"></i>
+                  </button>
+                  <div class="mobile-sort-backdrop" id="mobile-sort-backdrop"></div>
+                  <ul class="mobile-sort-menu" id="mobile-sort-menu" role="listbox" aria-label="Sort options" tabindex="-1">
+                    <li class="mobile-sort-option is-selected" role="option" aria-selected="true" data-value="popular" tabindex="0">
+                      <span>Popular (Featured)</span>
+                      <i data-lucide="check" class="mobile-sort-check" style="width:16px;height:16px;"></i>
+                    </li>
+                    <li class="mobile-sort-option" role="option" aria-selected="false" data-value="newest" tabindex="-1">
+                      <span>Newest Additions</span>
+                      <i data-lucide="check" class="mobile-sort-check" style="width:16px;height:16px;"></i>
+                    </li>
+                    <li class="mobile-sort-option" role="option" aria-selected="false" data-value="price-asc" tabindex="-1">
+                      <span>Price: Low to High</span>
+                      <i data-lucide="check" class="mobile-sort-check" style="width:16px;height:16px;"></i>
+                    </li>
+                    <li class="mobile-sort-option" role="option" aria-selected="false" data-value="price-desc" tabindex="-1">
+                      <span>Price: High to Low</span>
+                      <i data-lucide="check" class="mobile-sort-check" style="width:16px;height:16px;"></i>
+                    </li>
+                    <li class="mobile-sort-option" role="option" aria-selected="false" data-value="rating" tabindex="-1">
+                      <span>Top Customer Rated</span>
+                      <i data-lucide="check" class="mobile-sort-check" style="width:16px;height:16px;"></i>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               <!-- View Switchers (Hidden on <= 768px) -->
